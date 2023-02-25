@@ -184,7 +184,7 @@ public class product extends javax.swing.JFrame {
                          else {
                              JOptionPane.showMessageDialog(jPanel1,"Invalid Name");
                          }
-                         if (size.matches("^[0-9]*$")) {
+/*                         if (size.matches("^[0-9]*$")) {
                            dataFiltered[1]=true;
                           }
                          else {
@@ -201,14 +201,48 @@ public class product extends javax.swing.JFrame {
                        }
                        else {
                            JOptionPane.showMessageDialog(jPanel1,"Invalid Price");
-                       }
-                       if (color.matches("^[a-zA-Z0-9]*$")) {
-                           dataFiltered[0]=true;
+                       }*/
+                       if (color.matches("^[a-zA-Z]*$")) {
+                           dataFiltered[4]=true;
                        }
                        else {
-                           JOptionPane.showMessageDialog(jPanel1,"Invalid Name");
+                           JOptionPane.showMessageDialog(jPanel1,"Invalid Colour");
                        }
-
+                   float newSize;
+                       try {
+                           newSize = Float.parseFloat(size);
+                           if(newSize==Float.parseFloat(size)){
+                               dataFiltered[1]=true;
+                           }
+                       }catch (NumberFormatException sizeException){
+                           JOptionPane.showMessageDialog(jPanel1, "Invalid Size");
+                       }
+                   float newWeight;
+                   try {
+                       newWeight = Float.parseFloat(size);
+                       if(newWeight==Float.parseFloat(size)){
+                           dataFiltered[2]=true;
+                       }
+                   }catch (NumberFormatException sizeException){
+                       JOptionPane.showMessageDialog(jPanel1, "Invalid Weight");
+                   }
+                   float newPrice = 0;
+                   try
+                   {
+                       newPrice = Float.parseFloat(price);
+                       if(newPrice == Float.parseFloat(price))
+                       {
+                         dataFiltered[3]=true;
+                       }
+                   }
+                   catch (NumberFormatException exception)
+                   {
+                       JOptionPane.showMessageDialog(jPanel1, "Invalid price");
+                   }
+//dataFiltered[] is an array of boolean with true as correct filtration
+                    for (int i=0;i<dataFiltered.length;i++){
+                        System.out.println(dataFiltered[i]);
+                    }
                }
             }
         });
