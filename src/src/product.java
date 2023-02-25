@@ -162,7 +162,7 @@ public class product extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(jPanel1,"Enter Name");
                     }
                     else if(size.isEmpty()){
-                        JOptionPane.showMessageDialog(jPanel1,"Enter Name");
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Size");
                     }else if(weight.isEmpty()){
                         JOptionPane.showMessageDialog(jPanel1,"Enter Weight");
                     }else if(price.isEmpty()){
