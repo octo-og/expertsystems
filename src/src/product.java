@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src;
 
-//hhuuu
- *
- * @author richy
- */
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class product extends javax.swing.JFrame {
 
     /**
@@ -74,7 +74,7 @@ public class product extends javax.swing.JFrame {
         });
 
         jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setText("Add product");
+        jButton3.setText("Add produuct");
         jButton3.setFocusable(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -144,7 +144,78 @@ public class product extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setText("Color");
 
-        jButton5.setText("Add Product");
+
+//take in product data
+        jButton5.setText("Add Product");//actual button
+        jButton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String name = nameTextField.getText();
+                String size = sizeTextField.getText();
+                String weight = weightTextField.getText();
+                String price = priceTextField.getText();
+                String color = colorTextField.getText();
+                boolean empty = false;
+                if(name.isEmpty()||size.isEmpty()||weight.isEmpty()||color.isEmpty()||price.isEmpty()){
+                    if (name.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Name");
+                    }
+                    else if(size.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Name");
+                    }else if(weight.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Weight");
+                    }else if(price.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Price");
+
+                    }else{
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Color");
+                    }
+
+                    }
+                else {
+                    empty=true;
+                }
+               if(empty) {
+                        boolean[] dataFiltered = new boolean[5];
+                         if (name.matches("^[a-zA-Z0-9]*$")) {
+                           dataFiltered[0]=true;
+                          }
+                         else {
+                             JOptionPane.showMessageDialog(jPanel1,"Invalid Name");
+                         }
+                         if (size.matches("^[0-9]*$")) {
+                           dataFiltered[1]=true;
+                          }
+                         else {
+                             JOptionPane.showMessageDialog(jPanel1,"Invalid Size");
+                         }
+                       if (weight.matches("^[0-9]*$")) {
+                           dataFiltered[2]=true;
+                       }
+                       else {
+                           JOptionPane.showMessageDialog(jPanel1,"Invalid Weight");
+                       }
+                       if (price.matches("^[0-9]*$")) {
+                           dataFiltered[0]=true;
+                       }
+                       else {
+                           JOptionPane.showMessageDialog(jPanel1,"Invalid Price");
+                       }
+                       if (color.matches("^[a-zA-Z0-9]*$")) {
+                           dataFiltered[0]=true;
+                       }
+                       else {
+                           JOptionPane.showMessageDialog(jPanel1,"Invalid Name");
+                       }
+
+               }
+            }
+        });
+
+
+
+
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -246,6 +317,7 @@ public class product extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
