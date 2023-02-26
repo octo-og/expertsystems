@@ -208,7 +208,7 @@ public class product extends javax.swing.JFrame {
                        else {
                            JOptionPane.showMessageDialog(jPanel1,"Invalid Colour");
                        }
-                   float newSize;
+                   float newSize=0;
                        try {
                            newSize = Float.parseFloat(size);
                            if(newSize==Float.parseFloat(size)){
@@ -217,7 +217,7 @@ public class product extends javax.swing.JFrame {
                        }catch (NumberFormatException sizeException){
                            JOptionPane.showMessageDialog(jPanel1, "Invalid Size");
                        }
-                   float newWeight;
+                   float newWeight=0;
                    try {
                        newWeight = Float.parseFloat(size);
                        if(newWeight==Float.parseFloat(size)){
@@ -240,9 +240,11 @@ public class product extends javax.swing.JFrame {
                        JOptionPane.showMessageDialog(jPanel1, "Invalid price");
                    }
 //dataFiltered[] is an array of boolean with true as correct filtration
-                    for (int i=0;i<dataFiltered.length;i++){
-                        System.out.println(dataFiltered[i]);
-                    }
+            if(dataFiltered[0]){
+                productControl productControl = new productControl(name,newSize,newWeight,newPrice,color);
+                databaseControl databaseControl = new databaseControl();
+                databaseControl.productInsert(productControl.getName(),productControl.getSize(),productControl.getWeight(),productControl.getPrice(),productControl.getColor());
+            }
                }
             }
         });
