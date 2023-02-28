@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 
+import javax.swing.*;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -168,6 +171,114 @@ public class product extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        //take in product data
+        jButton5.setText("Add Product");//actual button
+        jButton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String name = nameTextField.getText();
+                String size = sizeTextField.getText();
+                String weight = weightTextField.getText();
+                String price = priceTextField.getText();
+                String color = colorTextField.getText();
+                boolean empty = false;
+                if(name.isEmpty()||size.isEmpty()||weight.isEmpty()||color.isEmpty()||price.isEmpty()){
+                    if (name.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Name");
+                    }
+                    else if(size.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Size");
+                    }else if(weight.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Weight");
+                    }else if(price.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Price");
+
+                    }else{
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Color");
+                    }
+
+                }
+                else {
+                    empty=true;
+                }
+                if(empty) {
+                    boolean[] dataFiltered = new boolean[5];
+                    if (name.matches("^[a-zA-Z0-9]*$")) {
+                        dataFiltered[0]=true;
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(jPanel1,"Invalid Name");
+                    }
+/*                         if (size.matches("^[0-9]*$")) {
+                           dataFiltered[1]=true;
+                          }
+                         else {
+                             JOptionPane.showMessageDialog(jPanel1,"Invalid Size");
+                         }
+                       if (weight.matches("^[0-9]*$")) {
+                           dataFiltered[2]=true;
+                       }
+                       else {
+                           JOptionPane.showMessageDialog(jPanel1,"Invalid Weight");
+                       }
+                       if (price.matches("^[0-9]*$")) {
+                           dataFiltered[0]=true;
+                       }
+                       else {
+                           JOptionPane.showMessageDialog(jPanel1,"Invalid Price");
+                       }*/
+                    if (color.matches("^[a-zA-Z]*$")) {
+                        dataFiltered[4]=true;
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(jPanel1,"Invalid Colour");
+                    }
+                    float newSize=0;
+                    try {
+                        newSize = Float.parseFloat(size);
+                        if(newSize==Float.parseFloat(size)){
+                            dataFiltered[1]=true;
+                        }
+                    }catch (NumberFormatException sizeException){
+                        JOptionPane.showMessageDialog(jPanel1, "Invalid Size");
+                    }
+                    float newWeight=0;
+                    try {
+                        newWeight = Float.parseFloat(size);
+                        if(newWeight==Float.parseFloat(size)){
+                            dataFiltered[2]=true;
+                        }
+                    }catch (NumberFormatException sizeException){
+                        JOptionPane.showMessageDialog(jPanel1, "Invalid Weight");
+                    }
+                    float newPrice = 0;
+                    try
+                    {
+                        newPrice = Float.parseFloat(price);
+                        if(newPrice == Float.parseFloat(price))
+                        {
+                            dataFiltered[3]=true;
+                        }
+                    }
+                    catch (NumberFormatException exception)
+                    {
+                        JOptionPane.showMessageDialog(jPanel1, "Invalid price");
+                    }
+//dataFiltered[] is an array of boolean with true as correct filtration
+                    if(dataFiltered[0]&&dataFiltered[1]&&dataFiltered[2]&&dataFiltered[3]&&dataFiltered[4]){
+
+                       }
+                }
+            }
+        });
+jButton6.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
+});
+
 
         jButton6.setText("Edit");
 
@@ -412,4 +523,6 @@ public class product extends javax.swing.JFrame {
     private javax.swing.JLabel weight;
     private javax.swing.JTextField weightTextField;
     // End of variables declaration
+
+
 }
