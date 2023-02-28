@@ -54,7 +54,7 @@ public class productControl {
     }
 
     private String createProductId(){
-        String Id =this.name.concat("");
+        String Idd =this.name.concat("");
         return "";
     }
 }
