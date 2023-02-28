@@ -298,7 +298,7 @@ public class product extends javax.swing.JFrame {
                     {
                         JOptionPane.showMessageDialog(jPanel1, "Invalid price");
                     }
-//dataFiltered[] is an array of boolean with true as correct filtration
+//dataFiltered[]  is an array of boolean with true as correct filtration
                     if(dataFiltered[0]&&dataFiltered[1]&&dataFiltered[2]&&dataFiltered[3]&&dataFiltered[4]){
 
                        }
