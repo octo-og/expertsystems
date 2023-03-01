@@ -1,5 +1,3 @@
-import java.lang.annotation.Repeatable;
-
 public class productControl {
     private String name;
     private float size;
@@ -60,4 +58,14 @@ public class productControl {
         String Idd =this.name.concat("");
         return "";
     }
+    public String[] displayNames(){
+        databaseControl databaseControl = new databaseControl();
+        int length = databaseControl.nameCount();
+        String[] listNames = new String[length];
+        for (int i =0;i<length;i++){
+            listNames[i]=databaseControl.name().get(i);
+        }
+        return listNames;
+    }
+
 }

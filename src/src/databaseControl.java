@@ -163,4 +163,25 @@ public class databaseControl {
 
         return dbPrice;
     }
+    public int nameCount()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","devi","pass");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery(" select count(name)from expert;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
 }
