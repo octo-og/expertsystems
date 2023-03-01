@@ -5,7 +5,7 @@
  */
 
 import javax.swing.*;
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -265,24 +265,7 @@ public class product extends javax.swing.JFrame {
                     else {
                         JOptionPane.showMessageDialog(jPanel1,"Invalid Name");
                     }
-/*                         if (size.matches("^[0-9]*$")) {
-                           dataFiltered[1]=true;
-                          }
-                         else {
-                             JOptionPane.showMessageDialog(jPanel1,"Invalid Size");
-                         }
-                       if (weight.matches("^[0-9]*$")) {
-                           dataFiltered[2]=true;
-                       }
-                       else {
-                           JOptionPane.showMessageDialog(jPanel1,"Invalid Weight");
-                       }
-                       if (price.matches("^[0-9]*$")) {
-                           dataFiltered[0]=true;
-                       }
-                       else {
-                           JOptionPane.showMessageDialog(jPanel1,"Invalid Price");
-                       }*/
+
                     if (color.matches("^[a-zA-Z]*$")) {
                         dataFiltered[4]=true;
                     }
@@ -327,13 +310,54 @@ public class product extends javax.swing.JFrame {
                 }
             }
         });
+        //Actions button
         jButton6.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-
+            public void actionPerformed(ActionEvent e)
+            {
+                if(jCheckBox1.isSelected())
+                {
+                    Update.setText(name.getText());
+                }
+                else if (jCheckBox2.isSelected())
+                {
+                    Update.setText(size.getText());
+                }
+                else if(jCheckBox3.isSelected())
+                {
+                    Update.setText(weight.getText());
+                }
+                else if(jCheckBox4.isSelected())
+                {
+                    Update.setText(price.getText());
+                }
+                else if(jCheckBox5.isSelected())
+                {
+                    Update.setText(color.getText());
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(jPanel3,"Not Item is Selected");
+                }
             }
         });
-
+//Activating Action checkBoxes
+buttonGroup.add(jCheckBox1);
+buttonGroup.add(jCheckBox2);
+buttonGroup.add(jCheckBox3);
+buttonGroup.add(jCheckBox4);
+buttonGroup.add(jCheckBox5);
+listButtonGroup.add(jCheckBox6);
+listButtonGroup.add(jCheckBox7);
+listButtonGroup.add(jCheckBox8);
+listButtonGroup.add(jCheckBox9);
+listButtonGroup.add(jCheckBox10);
+statusButtonGroup.add(jCheckBox11);
+statusButtonGroup.add(jCheckBox12);
+statusButtonGroup.add(jCheckBox13);
+statusButtonGroup.add(jCheckBox14);
+statusButtonGroup.add(jCheckBox15);
+statusButtonGroup.add(jCheckBox16);
 
         name.setText("NAN");
 
@@ -937,4 +961,9 @@ public class product extends javax.swing.JFrame {
     private javax.swing.JLabel weight;
     private javax.swing.JTextField weightTextField;
     // End of variables declaration
+    ButtonGroup buttonGroup = new ButtonGroup();
+    ButtonGroup listButtonGroup = new ButtonGroup();
+    ButtonGroup statusButtonGroup = new ButtonGroup();
+
+
 }
