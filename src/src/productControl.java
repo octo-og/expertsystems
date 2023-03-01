@@ -1,23 +1,26 @@
+import java.lang.annotation.Repeatable;
+
 public class productControl {
     private String name;
     private float size;
     private float weight;
     private float price;
     private String color;
-
-    public productControl(String name, float size, float weight, float price, String color) {
+// constructor brought problems in the db, had to get rid of it advise to use getters and setters
+/*    public productControl(String name, float size, float weight, float price, String color) {
         this.name = name;
         this.size = size;
         this.weight = weight;
         this.price = price;
         this.color = color;
-    }
+    }*/
+
 
     public String getName() {
         return name;
     }
 
-    public void setSame(String same) {
+    public void setName(String same) {
         this.name = same;
     }
 
