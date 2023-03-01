@@ -1,0 +1,157 @@
+//take in product data
+        jButton5.setText("Add Product");//actual button
+        jButton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String name = nameTextField.getText();
+                String size = sizeTextField.getText();
+                String weight = weightTextField.getText();
+                String price = priceTextField.getText();
+                String color = colorTextField.getText();
+                boolean empty = false;
+                if(name.isEmpty()||size.isEmpty()||weight.isEmpty()||color.isEmpty()||price.isEmpty()){
+                    if (name.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Name");
+                    }
+                    else if(size.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Size");
+                    }else if(weight.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Weight");
+                    }else if(price.isEmpty()){
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Price");
+
+                    }else{
+                        JOptionPane.showMessageDialog(jPanel1,"Enter Color");
+                    }
+
+                    }
+                else {
+                    empty=true;
+                }
+               if(empty) {
+                        boolean[] dataFiltered = new boolean[5];
+                         if (name.matches("^[a-zA-Z0-9]*$")) {
+                           dataFiltered[0]=true;
+                          }
+                         else {
+                             JOptionPane.showMessageDialog(jPanel1,"Invalid Name");
+                         }
+/*                         if (size.matches("^[0-9]*$")) {
+                           dataFiltered[1]=true;
+                          }
+                         else {
+                             JOptionPane.showMessageDialog(jPanel1,"Invalid Size");
+                         }
+                       if (weight.matches("^[0-9]*$")) {
+                           dataFiltered[2]=true;
+                       }
+                       else {
+                           JOptionPane.showMessageDialog(jPanel1,"Invalid Weight");
+                       }
+                       if (price.matches("^[0-9]*$")) {
+                           dataFiltered[0]=true;
+                       }
+                       else {
+                           JOptionPane.showMessageDialog(jPanel1,"Invalid Price");
+                       }*/
+                       if (color.matches("^[a-zA-Z]*$")) {
+                           dataFiltered[4]=true;
+                       }
+                       else {
+                           JOptionPane.showMessageDialog(jPanel1,"Invalid Colour");
+                       }
+                   float newSize=0;
+                       try {
+                           newSize = Float.parseFloat(size);
+                           if(newSize==Float.parseFloat(size)){
+                               dataFiltered[1]=true;
+                           }
+                       }catch (NumberFormatException sizeException){
+                           JOptionPane.showMessageDialog(jPanel1, "Invalid Size");
+                       }
+                   float newWeight=0;
+                   try {
+                       newWeight = Float.parseFloat(size);
+                       if(newWeight==Float.parseFloat(size)){
+                           dataFiltered[2]=true;
+                       }
+                   }catch (NumberFormatException sizeException){
+                       JOptionPane.showMessageDialog(jPanel1, "Invalid Weight");
+                   }
+                   float newPrice = 0;
+                   try
+                   {
+                       newPrice = Float.parseFloat(price);
+                       if(newPrice == Float.parseFloat(price))
+                       {
+                         dataFiltered[3]=true;
+                       }
+                   }
+                   catch (NumberFormatException exception)
+                   {
+                       JOptionPane.showMessageDialog(jPanel1, "Invalid price");
+                   }
+//dataFiltered[] is an array of boolean with true as correct filtration
+            if(dataFiltered[0]){
+                productControl productControl = new productControl(name,newSize,newWeight,newPrice,color);
+                databaseControl databaseControl = new databaseControl();
+                databaseControl.productInsert(productControl.getName(),productControl.getSize(),productControl.getWeight(),productControl.getPrice(),productControl.getColor());
+            }
+               }
+            }
+        });
+        //from line 314
+        jButton6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if(jCheckBox1.isSelected())
+                {
+                    Update.setText(name.getText());
+                }
+                else if (jCheckBox2.isSelected())
+                {
+                    Update.setText(size.getText());
+                }
+                else if(jCheckBox3.isSelected())
+                {
+                    Update.setText(weight.getText());
+                }
+                else if(jCheckBox4.isSelected())
+                {
+                    Update.setText(price.getText());
+                }
+                else if(jCheckBox5.isSelected())
+                {
+                    Update.setText(color.getText());
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(jPanel3,"Not Item is Selected");
+                }
+            }
+        });
+//Activating Action checkBoxes
+buttonGroup.add(jCheckBox1);
+buttonGroup.add(jCheckBox2);
+buttonGroup.add(jCheckBox3);
+buttonGroup.add(jCheckBox4);
+buttonGroup.add(jCheckBox5);
+listButtonGroup.add(jCheckBox6);
+listButtonGroup.add(jCheckBox7);
+listButtonGroup.add(jCheckBox8);
+listButtonGroup.add(jCheckBox9);
+listButtonGroup.add(jCheckBox10);
+statusButtonGroup.add(jCheckBox11);
+statusButtonGroup.add(jCheckBox12);
+statusButtonGroup.add(jCheckBox13);
+statusButtonGroup.add(jCheckBox14);
+statusButtonGroup.add(jCheckBox15);
+statusButtonGroup.add(jCheckBox16);
+//from line 964
+  ButtonGroup buttonGroup = new ButtonGroup();
+    ButtonGroup listButtonGroup = new ButtonGroup();
+    ButtonGroup statusButtonGroup = new ButtonGroup();
+
+
