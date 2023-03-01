@@ -305,7 +305,13 @@ public class product extends javax.swing.JFrame {
                     }
 //dataFiltered[]  is an array of boolean with true as correct filtration
                     if(dataFiltered[0]&&dataFiltered[1]&&dataFiltered[2]&&dataFiltered[3]&&dataFiltered[4]){
-
+                        databaseControl databaseControl = new databaseControl();
+                        if(databaseControl.productInsert(name,newSize,newWeight,newPrice,color)){
+                            JOptionPane.showMessageDialog(jPanel2,"Data added");
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(jPanel2,"Error Occurred");
+                        }
                     }
                 }
             }
