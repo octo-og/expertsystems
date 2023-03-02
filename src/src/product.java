@@ -365,6 +365,42 @@ statusButtonGroup.add(jCheckBox14);
 statusButtonGroup.add(jCheckBox15);
 statusButtonGroup.add(jCheckBox16);
 
+
+
+        productControl productControl = new productControl();
+        databaseControl databaseControl = new databaseControl();
+        int length = databaseControl.nameCount();
+        String[] list;
+        list=productControl.displayNames();
+
+        if(length==1){
+            listName1.setText(list[0]);
+        } else if (length==2) {
+            listName1.setText(list[0]);
+            listName2.setText(list[1]);
+        } else if (length==3) {
+            listName1.setText(list[0]);
+            listName2.setText(list[1]);
+            listName3.setText(list[2]);
+        } else if (length==4) {
+            listName1.setText(list[0]);
+            listName2.setText(list[1]);
+            listName3.setText(list[2]);
+            listName4.setText(list[3]);
+        }
+        else if (length==5) {
+            listName1.setText(list[0]);
+            listName2.setText(list[1]);
+            listName3.setText(list[2]);
+            listName4.setText(list[3]);
+            listName5.setText(list[4]);
+        }else {
+            listName1.setText(list[0]);
+            listName2.setText(list[1]);
+            listName3.setText(list[2]);
+            listName4.setText(list[3]);
+            listName5.setText(list[4]);
+        }
         name.setText("NAN");
 
         size.setText("NAN");
@@ -452,15 +488,14 @@ statusButtonGroup.add(jCheckBox16);
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel11.setText("Action");
 
-        listName1.setText("NAN");
 
         productId1.setText("NAN");
 
-        listName2.setText("NAN");
+
 
         productId2.setText("NAN");
 
-        listName3.setText("NAN");
+
 
         prductId3.setText("NAN");
 
@@ -470,11 +505,11 @@ statusButtonGroup.add(jCheckBox16);
             }
         });
 
-        listName4.setText("NAN");
+
 
         productId4.setText("NAN");
 
-        listName5.setText("NAN");
+
 
         productId5.setText("NAN");
 

@@ -43,11 +43,11 @@ public class databaseControl {
             Connection con= DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/expert","devi","pass");
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery(" select time from movie;");
+            ResultSet rs=stmt.executeQuery(" select name from product;");
             while(rs.next()){
 
                 productControl name =  new productControl();
-                name.setName(rs.getString("time"));
+                name.setName(rs.getString("name"));
                 dbName.add(name.getName());
             }
 
@@ -69,11 +69,11 @@ public class databaseControl {
             Connection con= DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/expert","devi","pass");
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery(" select time from movie;");
+            ResultSet rs=stmt.executeQuery(" select colour from product;");
             while(rs.next()){
 
                 productControl name =  new productControl();
-                name.setColor(rs.getString("time"));
+                name.setColor(rs.getString("colour"));
                 dbColour.add(name.getColor());
             }
 
@@ -95,11 +95,11 @@ public class databaseControl {
             Connection con= DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/expert","devi","pass");
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery(" select time from movie;");
+            ResultSet rs=stmt.executeQuery(" select size from product;");
             while(rs.next()){
 
                 productControl name =  new productControl();
-                name.setSize(rs.getFloat("time"));
+                name.setSize(rs.getFloat("size"));
                 dbSize.add(name.getSize());
             }
 
@@ -121,11 +121,11 @@ public class databaseControl {
             Connection con= DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/expert","devi","pass");
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery(" select time from movie;");
+            ResultSet rs=stmt.executeQuery(" select weight from product;");
             while(rs.next()){
 
                 productControl name =  new productControl();
-                name.setWeight(rs.getFloat("time"));
+                name.setWeight(rs.getFloat("weight"));
                 dbWeight.add(name.getWeight());
             }
 
@@ -147,11 +147,11 @@ public class databaseControl {
             Connection con= DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/expert","devi","pass");
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery(" select time from movie;");
+            ResultSet rs=stmt.executeQuery(" select price from product;");
             while(rs.next()){
 
                 productControl name =  new productControl();
-                name.setPrice(rs.getFloat("time"));
+                name.setPrice(rs.getFloat("price"));
                 dbPrice.add(name.getPrice());
             }
 
@@ -173,7 +173,7 @@ public class databaseControl {
             Connection con=DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/expert","devi","pass");
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery(" select count(name)from expert;");
+            ResultSet rs=stmt.executeQuery(" select count(name)from product;");
             while(rs.next())
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
