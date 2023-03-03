@@ -948,7 +948,6 @@ public class product extends javax.swing.JFrame {
     private javax.swing.JLabel statusProductId;
     private javax.swing.JLabel weight;
     private javax.swing.JTextField weightTextField;
-
     ButtonGroup buttonGroup = new ButtonGroup();
     ButtonGroup listButtonGroup = new ButtonGroup();
     ButtonGroup statusButtonGroup = new ButtonGroup();
