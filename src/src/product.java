@@ -400,7 +400,6 @@ public class product extends javax.swing.JFrame {
             listName5.setText(list[4]);
         }
 
-
         jButton6.setText("Edit");
 
         jButton7.setText("Update");
@@ -951,6 +950,5 @@ public class product extends javax.swing.JFrame {
     ButtonGroup buttonGroup = new ButtonGroup();
     ButtonGroup listButtonGroup = new ButtonGroup();
     ButtonGroup statusButtonGroup = new ButtonGroup();
-
     // End of variables declaration
 }
