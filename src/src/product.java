@@ -5,7 +5,7 @@
  */
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -187,7 +187,7 @@ public class product extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(209, 209, 209)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
         );
@@ -196,13 +196,11 @@ public class product extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(4, 4, 4))
                                         .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(jLabel7)
-                                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGap(14, 14, 14))
         );
 
@@ -348,22 +346,22 @@ public class product extends javax.swing.JFrame {
             }
         });
 //Activating Action checkBoxes
-buttonGroup.add(jCheckBox1);
-buttonGroup.add(jCheckBox2);
-buttonGroup.add(jCheckBox3);
-buttonGroup.add(jCheckBox4);
-buttonGroup.add(jCheckBox5);
-listButtonGroup.add(jCheckBox6);
-listButtonGroup.add(jCheckBox7);
-listButtonGroup.add(jCheckBox8);
-listButtonGroup.add(jCheckBox9);
-listButtonGroup.add(jCheckBox10);
-statusButtonGroup.add(jCheckBox11);
-statusButtonGroup.add(jCheckBox12);
-statusButtonGroup.add(jCheckBox13);
-statusButtonGroup.add(jCheckBox14);
-statusButtonGroup.add(jCheckBox15);
-statusButtonGroup.add(jCheckBox16);
+        buttonGroup.add(jCheckBox1);
+        buttonGroup.add(jCheckBox2);
+        buttonGroup.add(jCheckBox3);
+        buttonGroup.add(jCheckBox4);
+        buttonGroup.add(jCheckBox5);
+        listButtonGroup.add(jCheckBox6);
+        listButtonGroup.add(jCheckBox7);
+        listButtonGroup.add(jCheckBox8);
+        listButtonGroup.add(jCheckBox9);
+        listButtonGroup.add(jCheckBox10);
+        statusButtonGroup.add(jCheckBox11);
+        statusButtonGroup.add(jCheckBox12);
+        statusButtonGroup.add(jCheckBox13);
+        statusButtonGroup.add(jCheckBox14);
+        statusButtonGroup.add(jCheckBox15);
+        statusButtonGroup.add(jCheckBox16);
 
 
 
@@ -401,15 +399,7 @@ statusButtonGroup.add(jCheckBox16);
             listName4.setText(list[3]);
             listName5.setText(list[4]);
         }
-        name.setText("NAN");
 
-        size.setText("NAN");
-
-        weight.setText("NAN");
-
-        price.setText("NAN");
-
-        color.setText("NAN");
 
         jButton6.setText("Edit");
 
@@ -440,7 +430,7 @@ statusButtonGroup.add(jCheckBox16);
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                                                .addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jButton7)))
                                 .addContainerGap())
@@ -488,30 +478,11 @@ statusButtonGroup.add(jCheckBox16);
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel11.setText("Action");
 
-
-        productId1.setText("NAN");
-
-
-
-        productId2.setText("NAN");
-
-
-
-        prductId3.setText("NAN");
-
         jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox8ActionPerformed(evt);
             }
         });
-
-
-
-        productId4.setText("NAN");
-
-
-
-        productId5.setText("NAN");
 
         jButton9.setText("Delete");
 
@@ -623,26 +594,6 @@ statusButtonGroup.add(jCheckBox16);
         jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel14.setText("Status");
 
-        statusProductId.setText("NAN");
-
-        statusId1.setText("NAN");
-
-        productStatus2.setText("NAN");
-
-        statusId2.setText("NAN");
-
-        productStatus3.setText("NAN");
-
-        statusId3.setText("NAN");
-
-        productStatus4.setText("NAN");
-
-        statusId4.setText("NAN");
-
-        productStatusId5.setText("NAN");
-
-        statusId5.setText("NAN");
-
         jCheckBox16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox16ActionPerformed(evt);
@@ -702,7 +653,7 @@ statusButtonGroup.add(jCheckBox16);
                                                         .addComponent(jCheckBox14)
                                                         .addComponent(jCheckBox15)
                                                         .addComponent(jCheckBox16))))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
                 jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -724,9 +675,8 @@ statusButtonGroup.add(jCheckBox16);
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                         .addComponent(productStatus2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(statusId2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(jCheckBox13)))
+                                                        .addComponent(jCheckBox13)
+                                                        .addComponent(statusId2))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -738,15 +688,16 @@ statusButtonGroup.add(jCheckBox16);
                                                         .addComponent(productStatus4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(statusId4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(productStatusId5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(statusId5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jCheckBox16))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jCheckBox16)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(productStatusId5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(statusId5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(64, 64, 64)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(115, Short.MAX_VALUE))
+                                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -775,11 +726,11 @@ statusButtonGroup.add(jCheckBox16);
                                                         .addComponent(sizeTextField, javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(nameTextField, javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(priceTextField, javax.swing.GroupLayout.Alignment.LEADING))))
-                                .addGap(29, 29, 29)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -815,10 +766,8 @@ statusButtonGroup.add(jCheckBox16);
                                                         .addComponent(colorTextField))
                                                 .addGap(35, 35, 35)
                                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(38, Short.MAX_VALUE))
+                                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(257, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -828,19 +777,17 @@ statusButtonGroup.add(jCheckBox16);
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 136, Short.MAX_VALUE)))
-                                .addContainerGap())
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(12, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1001,10 +948,10 @@ statusButtonGroup.add(jCheckBox16);
     private javax.swing.JLabel statusProductId;
     private javax.swing.JLabel weight;
     private javax.swing.JTextField weightTextField;
-    // End of variables declaration
+
     ButtonGroup buttonGroup = new ButtonGroup();
     ButtonGroup listButtonGroup = new ButtonGroup();
     ButtonGroup statusButtonGroup = new ButtonGroup();
 
-
+    // End of variables declaration
 }
