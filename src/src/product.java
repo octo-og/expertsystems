@@ -281,8 +281,8 @@ public class product extends javax.swing.JFrame {
                     }
                     float newWeight=0;
                     try {
-                        newWeight = Float.parseFloat(size);
-                        if(newWeight==Float.parseFloat(size)){
+                        newWeight = Float.parseFloat(weight);
+                        if(newWeight==Float.parseFloat(weight)){
                             dataFiltered[2]=true;
                         }
                     }catch (NumberFormatException sizeException){
@@ -306,6 +306,8 @@ public class product extends javax.swing.JFrame {
                         databaseControl databaseControl = new databaseControl();
                         if(databaseControl.productInsert(name,newSize,newWeight,newPrice,color)){
                             JOptionPane.showMessageDialog(jPanel2,"Data added");
+                            displayproducts();
+
                         }
                         else {
                             JOptionPane.showMessageDialog(jPanel2,"Error Occurred");
@@ -345,6 +347,649 @@ public class product extends javax.swing.JFrame {
                 }
             }
         });
+        jButton7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String data=Update.getText();
+                boolean valid = false;
+                if(jCheckBox1.isSelected()||jCheckBox5.isSelected()){
+
+                    if(data.isEmpty()) {
+                        JOptionPane.showMessageDialog(jPanel3, "Enter Data to Update");
+
+                    }
+                    else {//name update
+                            if(jCheckBox1.isSelected()){
+
+                                if (data.matches("^[a-zA-Z0-9]*$")) {
+                                    //update database
+
+                                    if(jCheckBox6.isSelected())
+                                    {
+                                        String productId= productId1.getText();
+                                        if(databaseControl.nameupdate(data,productId)){
+                                            jCheckBox6.setEnabled(true);
+                                            jCheckBox7.setEnabled(true);
+                                            jCheckBox8.setEnabled(true);
+                                            jCheckBox9.setEnabled(true);
+                                            jCheckBox10.setEnabled(true);
+                                            jCheckBox11.setEnabled(true);
+                                            displayproducts();
+                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                        }else {
+                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                        }
+                                    }
+                                    else if(jCheckBox7.isSelected())
+                                    {
+                                        String productId= productId2.getText();
+                                        if(databaseControl.nameupdate(data,productId)){
+                                            jCheckBox6.setEnabled(true);
+                                            jCheckBox7.setEnabled(true);
+                                            jCheckBox8.setEnabled(true);
+                                            jCheckBox9.setEnabled(true);
+                                            jCheckBox10.setEnabled(true);
+                                            jCheckBox11.setEnabled(true);
+                                            displayproducts();
+                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                        }else {
+                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                        }
+                                    }
+                                    else if(jCheckBox8.isSelected())
+                                    {
+                                        String productId= prductId3.getText();
+                                        if(databaseControl.nameupdate(data,productId)){
+                                            jCheckBox6.setEnabled(true);
+                                            jCheckBox7.setEnabled(true);
+                                            jCheckBox8.setEnabled(true);
+                                            jCheckBox9.setEnabled(true);
+                                            jCheckBox10.setEnabled(true);
+                                            jCheckBox11.setEnabled(true);
+                                            displayproducts();
+                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                        }else {
+                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                        }
+                                    }
+                                    else if(jCheckBox9.isSelected())
+                                    {
+                                        String productId= productId4.getText();
+                                        if(databaseControl.nameupdate(data,productId)){
+                                            jCheckBox6.setEnabled(true);
+                                            jCheckBox7.setEnabled(true);
+                                            jCheckBox8.setEnabled(true);
+                                            jCheckBox9.setEnabled(true);
+                                            jCheckBox10.setEnabled(true);
+                                            jCheckBox11.setEnabled(true);
+                                            displayproducts();
+                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                        }else {
+                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                        }
+                                    }
+                                    else if(jCheckBox11.isSelected())
+                                    {
+                                        String productId= productId5.getText();
+                                        if(databaseControl.nameupdate(data,productId)){
+                                            jCheckBox6.setEnabled(true);
+                                            jCheckBox7.setEnabled(true);
+                                            jCheckBox8.setEnabled(true);
+                                            jCheckBox9.setEnabled(true);
+                                            jCheckBox10.setEnabled(true);
+                                            jCheckBox11.setEnabled(true);
+                                            displayproducts();
+                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                        }else {
+                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                        }
+                                    }
+                                }
+                                else {
+                                    JOptionPane.showMessageDialog(jPanel3,"Enter a valid name");
+                                }
+                            }//colour update
+                            else if(jCheckBox5.isSelected()){
+                                if (data.matches("^[a-zA-Z0-9]*$")) {
+                                    //update database
+                                    if(jCheckBox6.isSelected())
+                                    {
+                                        String productId= productId1.getText();
+                                        if(databaseControl.coloutUpdate(data,productId)){
+                                            jCheckBox6.setEnabled(true);
+                                            jCheckBox7.setEnabled(true);
+                                            jCheckBox8.setEnabled(true);
+                                            jCheckBox9.setEnabled(true);
+                                            jCheckBox10.setEnabled(true);
+                                            jCheckBox11.setEnabled(true);
+                                            displayproducts();
+                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                        }else {
+                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                        }
+                                    }
+                                    else if(jCheckBox7.isSelected())
+                                    {
+                                        String productId= productId2.getText();
+                                        if(databaseControl.coloutUpdate(data,productId)){
+                                            jCheckBox6.setEnabled(true);
+                                            jCheckBox7.setEnabled(true);
+                                            jCheckBox8.setEnabled(true);
+                                            jCheckBox9.setEnabled(true);
+                                            jCheckBox10.setEnabled(true);
+                                            jCheckBox11.setEnabled(true);
+                                            displayproducts();
+                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                        }else {
+                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                        }
+                                    }
+                                    else if(jCheckBox8.isSelected())
+                                    {
+                                        String productId= prductId3.getText();
+                                        if(databaseControl.coloutUpdate(data,productId)){
+                                            jCheckBox6.setEnabled(true);
+                                            jCheckBox7.setEnabled(true);
+                                            jCheckBox8.setEnabled(true);
+                                            jCheckBox9.setEnabled(true);
+                                            jCheckBox10.setEnabled(true);
+                                            jCheckBox11.setEnabled(true);
+                                            displayproducts();
+                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                        }else {
+                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                        }
+                                    }
+                                    else if(jCheckBox9.isSelected())
+                                    {
+                                        String productId= productId4.getText();
+                                        if(databaseControl.coloutUpdate(data,productId)){
+                                            jCheckBox6.setEnabled(true);
+                                            jCheckBox7.setEnabled(true);
+                                            jCheckBox8.setEnabled(true);
+                                            jCheckBox9.setEnabled(true);
+                                            jCheckBox10.setEnabled(true);
+                                            jCheckBox11.setEnabled(true);
+                                            displayproducts();
+                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                        }else {
+                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                        }
+                                    }
+                                    else if(jCheckBox11.isSelected())
+                                    {
+                                        String productId= productId5.getText();
+                                        if(databaseControl.coloutUpdate(data,productId)){
+                                            jCheckBox6.setEnabled(true);
+                                            jCheckBox7.setEnabled(true);
+                                            jCheckBox8.setEnabled(true);
+                                            jCheckBox9.setEnabled(true);
+                                            jCheckBox10.setEnabled(true);
+                                            jCheckBox11.setEnabled(true);
+                                            displayproducts();
+                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                        }else {
+                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                        }
+                                    }
+                                }
+                                else {
+                                    JOptionPane.showMessageDialog(jPanel3,"Enter a valid Colour");
+                                }
+                            }
+                        }
+                    }
+
+
+                else {
+                    if(jCheckBox2.isSelected()||jCheckBox3.isSelected()||jCheckBox4.isSelected()) {
+                        if (data.isEmpty()) {
+                            JOptionPane.showMessageDialog(jPanel3, "Enter Data to Update");
+                        } else {
+                            if (jCheckBox2.isSelected()) {
+                                float newSize = 0;
+                                try {
+                                    newSize = Float.parseFloat(data);
+                                    if (newSize == Float.parseFloat(data)) {
+                                        //update db
+                                        if (jCheckBox6.isSelected()) {
+                                            String productId = productId1.getText();
+                                            if (databaseControl.sizeUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox7.isSelected()) {
+                                            String productId = productId2.getText();
+                                            if (databaseControl.sizeUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox8.isSelected()) {
+                                            String productId = prductId3.getText();
+                                            if (databaseControl.sizeUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox9.isSelected()) {
+                                            String productId = productId4.getText();
+                                            if (databaseControl.sizeUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox11.isSelected()) {
+                                            String productId = productId5.getText();
+                                            if (databaseControl.sizeUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        }
+                                    }
+                                } catch (NumberFormatException sizeException) {
+                                    JOptionPane.showMessageDialog(jPanel3, "Invalid Size");
+                                }
+                            } else if (jCheckBox3.isSelected()) {
+                                float newWeight = 0;
+                                try {
+                                    newWeight = Float.parseFloat(data);
+                                    if (newWeight == Float.parseFloat(data)) {
+                                        //update db
+                                        if (jCheckBox6.isSelected()) {
+                                            String productId = productId1.getText();
+                                            if (databaseControl.weigthtUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox7.isSelected()) {
+                                            String productId = productId2.getText();
+                                            if (databaseControl.weigthtUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox8.isSelected()) {
+                                            String productId = prductId3.getText();
+                                            if (databaseControl.weigthtUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox9.isSelected()) {
+                                            String productId = productId4.getText();
+                                            if (databaseControl.weigthtUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox11.isSelected()) {
+                                            String productId = productId5.getText();
+                                            if (databaseControl.weigthtUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        }
+                                    }
+                                } catch (NumberFormatException sizeException) {
+                                    JOptionPane.showMessageDialog(jPanel3, "Invalid Weight");
+                                }
+                            } else if (jCheckBox4.isSelected()) {
+                                float newPrice = 0;
+                                try {
+                                    newPrice = Float.parseFloat(data);
+                                    if (newPrice == Float.parseFloat(data))
+                                        //update db
+                                        if (jCheckBox6.isSelected()) {
+                                            String productId = productId1.getText();
+                                            if (databaseControl.priceUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox7.isSelected()) {
+                                            String productId = productId2.getText();
+                                            if (databaseControl.priceUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox8.isSelected()) {
+                                            String productId = prductId3.getText();
+                                            if (databaseControl.priceUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox9.isSelected()) {
+                                            String productId = productId4.getText();
+                                            if (databaseControl.priceUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        } else if (jCheckBox11.isSelected()) {
+                                            String productId = productId5.getText();
+                                            if (databaseControl.priceUpdate(data, productId)) {
+                                                jCheckBox6.setEnabled(true);
+                                                jCheckBox7.setEnabled(true);
+                                                jCheckBox8.setEnabled(true);
+                                                jCheckBox9.setEnabled(true);
+                                                jCheckBox10.setEnabled(true);
+                                                jCheckBox11.setEnabled(true);
+                                                displayproducts();
+                                                JOptionPane.showMessageDialog(jPanel3, "Update Recieved");
+                                            } else {
+                                                JOptionPane.showMessageDialog(jPanel3, "Error occurred");
+
+                                            }
+                                        }
+                                    {
+                                        valid = true;
+                                    }
+                                } catch (NumberFormatException exception) {
+                                    JOptionPane.showMessageDialog(jPanel3, "Invalid price");
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            }
+
+        });
+        displayproducts();
+        jButton10.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if(jCheckBox6.isSelected()){
+                    int result= JOptionPane.showConfirmDialog(jPanel4,"Confirm to Edit");
+                    switch (result){
+                        case JOptionPane.YES_OPTION :
+                            //code
+                            String productId=productId1.getText();
+                            String[] info= databaseControl.productUpdate(productId);
+                            name.setText(info[0]);
+                            size.setText(info[1]);
+                            weight.setText(info[2]);
+                            price.setText(info[3]);
+                            color.setText(info[4]);
+                            jCheckBox7.setEnabled(false);
+                            jCheckBox8.setEnabled(false);
+                            jCheckBox9.setEnabled(false);
+                            jCheckBox10.setEnabled(false);
+                            jCheckBox11.setEnabled(false);
+                            break;
+                        case JOptionPane.NO_OPTION:
+                            //code
+                            break;
+                        case JOptionPane.CANCEL_OPTION:
+                            //code
+                            break;
+                        case JOptionPane.CLOSED_OPTION:
+                            //code
+                            break;
+                    }
+
+                }
+                else if(jCheckBox7.isSelected()){
+
+                    int result= JOptionPane.showConfirmDialog(jPanel4,"Confirm to Edit");
+                    switch (result){
+                        case JOptionPane.YES_OPTION :
+                            //code
+                            String productId=productId1.getText();
+                            String[] info= databaseControl.productUpdate(productId);
+                            name.setText(info[0]);
+                            size.setText(info[1]);
+                            weight.setText(info[2]);
+                            price.setText(info[3]);
+                            color.setText(info[4]);
+                            jCheckBox6.setEnabled(false);
+                            jCheckBox8.setEnabled(false);
+                            jCheckBox9.setEnabled(false);
+                            jCheckBox10.setEnabled(false);
+                            jCheckBox11.setEnabled(false);
+                            break;
+                        case JOptionPane.NO_OPTION:
+                            //code
+                            break;
+                        case JOptionPane.CANCEL_OPTION:
+                            //code
+                            break;
+                        case JOptionPane.CLOSED_OPTION:
+                            //code
+                            break;
+                    }
+                }
+                else if(jCheckBox8.isSelected()){
+                    int result= JOptionPane.showConfirmDialog(jPanel4,"Confirm to Edit");
+                    switch (result){
+                        case JOptionPane.YES_OPTION :
+                            //code
+                            String productId=prductId3.getText();
+                            String[] info= databaseControl.productUpdate(productId);
+                            name.setText(info[0]);
+                            size.setText(info[1]);
+                            weight.setText(info[2]);
+                            price.setText(info[3]);
+                            color.setText(info[4]);
+                            jCheckBox6.setEnabled(false);
+                            jCheckBox7.setEnabled(false);
+                            jCheckBox9.setEnabled(false);
+                            jCheckBox10.setEnabled(false);
+                            jCheckBox11.setEnabled(false);
+                            break;
+                        case JOptionPane.NO_OPTION:
+                            //code
+                            break;
+                        case JOptionPane.CANCEL_OPTION:
+                            //code
+                            break;
+                        case JOptionPane.CLOSED_OPTION:
+                            //code
+                            break;
+                    }
+
+                }
+                else if(jCheckBox9.isSelected()){
+
+                    int result= JOptionPane.showConfirmDialog(jPanel4,"Confirm to Edit");
+                    switch (result){
+                        case JOptionPane.YES_OPTION :
+                            //code
+                            String productId=productId4.getText();
+                            String[] info= databaseControl.productUpdate(productId);
+                            name.setText(info[0]);
+                            size.setText(info[1]);
+                            weight.setText(info[2]);
+                            price.setText(info[3]);
+                            color.setText(info[4]);
+                            jCheckBox6.setEnabled(false);
+                            jCheckBox7.setEnabled(false);
+                            jCheckBox8.setEnabled(false);
+                            jCheckBox10.setEnabled(false);
+                            jCheckBox11.setEnabled(false);
+                            break;
+                        case JOptionPane.NO_OPTION:
+                            //code
+                            break;
+                        case JOptionPane.CANCEL_OPTION:
+                            //code
+                            break;
+                        case JOptionPane.CLOSED_OPTION:
+                            //code
+                            break;
+                    }
+
+                }
+                else if(jCheckBox11.isSelected()){
+
+                    int result= JOptionPane.showConfirmDialog(jPanel4,"Confirm to Edit");
+                    switch (result){
+                        case JOptionPane.YES_OPTION :
+                            String productId=productId5.getText();
+                            String[] info= databaseControl.productUpdate(productId);
+                            name.setText(info[0]);
+                            size.setText(info[1]);
+                            weight.setText(info[2]);
+                            price.setText(info[3]);
+                            color.setText(info[4]);
+                            jCheckBox6.setEnabled(false);
+                            jCheckBox7.setEnabled(false);
+                            jCheckBox8.setEnabled(false);
+                            jCheckBox10.setEnabled(false);
+                            jCheckBox9.setEnabled(false);
+                            break;
+                        case JOptionPane.NO_OPTION:
+                            //code
+                            break;
+                        case JOptionPane.CANCEL_OPTION:
+                            //code
+                            break;
+                        case JOptionPane.CLOSED_OPTION:
+                            //code
+                            break;
+                    }
+
+                }
+            }
+        });
+
+        jButton7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String data=Update.getText();
+            }
+        });
 //Activating Action checkBoxes
         buttonGroup.add(jCheckBox1);
         buttonGroup.add(jCheckBox2);
@@ -356,7 +1001,7 @@ public class product extends javax.swing.JFrame {
         listButtonGroup.add(jCheckBox8);
         listButtonGroup.add(jCheckBox9);
         listButtonGroup.add(jCheckBox10);
-        statusButtonGroup.add(jCheckBox11);
+        listButtonGroup.add(jCheckBox11);
         statusButtonGroup.add(jCheckBox12);
         statusButtonGroup.add(jCheckBox13);
         statusButtonGroup.add(jCheckBox14);
@@ -365,42 +1010,6 @@ public class product extends javax.swing.JFrame {
 
 
 
-        productControl productControl = new productControl();
-        databaseControl databaseControl = new databaseControl();
-        int length = databaseControl.nameCount();
-        String[] list;
-        list=productControl.displayNames();
-        if(length==0){
-        }
-        else if(length==1){
-            listName1.setText(list[0]);
-        } else if (length==2) {
-            listName1.setText(list[0]);
-            listName2.setText(list[1]);
-        } else if (length==3) {
-            listName1.setText(list[0]);
-            listName2.setText(list[1]);
-            listName3.setText(list[2]);
-        } else if (length==4) {
-            listName1.setText(list[0]);
-            listName2.setText(list[1]);
-            listName3.setText(list[2]);
-            listName4.setText(list[3]);
-        }
-        else if (length==5) {
-            listName1.setText(list[0]);
-            listName2.setText(list[1]);
-            listName3.setText(list[2]);
-            listName4.setText(list[3]);
-            listName5.setText(list[4]);
-        }
-        else {
-            listName1.setText(list[0]);
-            listName2.setText(list[1]);
-            listName3.setText(list[2]);
-            listName4.setText(list[3]);
-            listName5.setText(list[4]);
-        }
 
         jButton6.setText("Edit");
 
@@ -481,7 +1090,8 @@ public class product extends javax.swing.JFrame {
 
         jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox8ActionPerformed(evt);
+
+
             }
         });
 
@@ -796,6 +1406,9 @@ public class product extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+    }    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+        //
+
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -952,5 +1565,72 @@ public class product extends javax.swing.JFrame {
     ButtonGroup buttonGroup = new ButtonGroup();
     ButtonGroup listButtonGroup = new ButtonGroup();
     ButtonGroup statusButtonGroup = new ButtonGroup();
+
+    productControl productControl = new productControl();
+    databaseControl databaseControl = new databaseControl();
+    int length = databaseControl.nameCount();
     // End of variables declaration
+    public void displayproducts(){
+
+
+        String[] list;
+        list=productControl.displayNames();
+        String[] ids;
+        ids=productControl.displayproductid();
+        if(length==0){
+        }
+        else if(length==1){
+            listName1.setText(list[0]);
+            productId2.setText(ids[0]);
+            productId1.setText(ids[0]);
+        } else if (length==2) {
+            listName1.setText(list[0]);
+            productId1.setText(ids[0]);
+            listName2.setText(list[1]);
+            productId1.setText(ids[0]);
+            productId2.setText(ids[1]);
+
+        } else if (length==3) {
+            listName1.setText(list[0]);
+            listName2.setText(list[1]);
+            listName3.setText(list[2]);
+            productId1.setText(ids[0]);
+            productId2.setText(ids[1]);
+            prductId3.setText(ids[2]);
+        } else if (length==4) {
+            listName1.setText(list[0]);
+            listName2.setText(list[1]);
+            listName3.setText(list[2]);
+            listName4.setText(list[3]);
+            productId1.setText(ids[0]);
+            productId2.setText(ids[1]);
+            prductId3.setText(ids[2]);
+            productId4.setText(ids[3]);
+        }
+        else if (length==5) {
+            listName1.setText(list[0]);
+            listName2.setText(list[1]);
+            listName3.setText(list[2]);
+            listName4.setText(list[3]);
+            listName5.setText(list[4]);
+            productId1.setText(ids[0]);
+            productId2.setText(ids[1]);
+            prductId3.setText(ids[2]);
+            productId4.setText(ids[3]);
+            productId5.setText(ids[4]);
+        }
+        else {
+            listName1.setText(list[0]);
+            listName2.setText(list[1]);
+            listName3.setText(list[2]);
+            listName4.setText(list[3]);
+            listName5.setText(list[4]);
+            productId1.setText(ids[0]);
+            productId2.setText(ids[1]);
+            prductId3.setText(ids[2]);
+            productId4.setText(ids[3]);
+            productId5.setText(ids[4]);
+        }
+    }
+
 }

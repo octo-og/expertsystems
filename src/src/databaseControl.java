@@ -58,6 +58,61 @@ public class databaseControl {
         }
 
         return dbName;
+    } 
+    public String[] productUpdate(String productId)
+    {
+
+       String[] product = new String[5];
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery(" select * from product where productID='"+productId+"';");
+            while(rs.next()){
+                product[0]=rs.getString("name");
+                product[1]=rs.getString("size");
+                product[2]=rs.getString("weight");
+                product[3]=rs.getString("price");
+                product[4]=rs.getString("colour");
+            }
+
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            System.out.println(throwable);
+        }
+for (int i=0;i<5;i++){
+    System.out.println(product[i]);
+}
+        return product;
+    }
+    public ArrayList<String> productID()
+    {
+
+        ArrayList<String> dbproductId =new ArrayList<String>();
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery(" select productID from product;");
+            while(rs.next()){
+
+                productControl productID =  new productControl();
+                productID.setId(rs.getString("productID"));
+                dbproductId.add(productID.getId());
+            }
+
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            System.out.println(throwable);
+        }
+
+        return dbproductId;
     }
     public ArrayList<String> colour()
     {
@@ -137,31 +192,100 @@ public class databaseControl {
 
         return dbWeight;
     }
-    public ArrayList<Float> price()
+    public boolean nameupdate(String name,String productID)
     {
-
-        ArrayList<Float> dbPrice =new ArrayList<Float>();
+        boolean done = false;
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con= DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/expert","root","");
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery(" select price from product;");
-            while(rs.next()){
-
-                productControl name =  new productControl();
-                name.setPrice(rs.getFloat("price"));
-                dbPrice.add(name.getPrice());
-            }
-
+            stmt.execute("UPDATE product SET name='"+name+"' WHERE productID='"+productID+"';");
+            done=true;
             con.close();
         }
         catch (SQLException | ClassNotFoundException throwable) {
             System.out.println(throwable);
         }
 
-        return dbPrice;
+        return done;
+    }
+    public boolean coloutUpdate(String colour,String productID)
+    {
+        boolean done = false;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            stmt.execute("UPDATE product SET colour='"+colour+"' WHERE productID='"+productID+"';");
+            done=true;
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            System.out.println(throwable);
+        }
+
+        return done;
+    }
+    public boolean sizeUpdate(String size,String productID)
+    {
+        boolean done = false;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            stmt.execute("UPDATE product SET size='"+size+"' WHERE productID='"+productID+"';");
+            done=true;
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            System.out.println(throwable);
+        }
+
+        return done;
+    }
+    public boolean weigthtUpdate(String weight,String productID)
+    {
+        boolean done = false;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            stmt.execute("UPDATE product SET weight='"+weight+"' WHERE productID='"+productID+"';");
+            done=true;
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            System.out.println(throwable);
+        }
+
+        return done;
+    }
+    public boolean priceUpdate(String price,String productID)
+    {
+        boolean done = false;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            stmt.execute("UPDATE product SET price='"+price+"' WHERE productID='"+productID+"';");
+            done=true;
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            System.out.println(throwable);
+        }
+
+        return done;
     }
     public int nameCount()
     {

@@ -4,6 +4,7 @@ public class productControl {
     private float weight;
     private float price;
     private String color;
+    private String id;
 // constructor brought problems in the db, had to get rid of it advise to use getters and setters
 /*    public productControl(String name, float size, float weight, float price, String color) {
         this.name = name;
@@ -13,6 +14,13 @@ public class productControl {
         this.color = color;
     }*/
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -66,6 +74,15 @@ public class productControl {
             listNames[i]=databaseControl.name().get(i);
         }
         return listNames;
+    }
+    public String[] displayproductid(){
+        databaseControl databaseControl = new databaseControl();
+        int length = databaseControl.nameCount();
+        String[] listid = new String[length];
+        for (int i =0;i<length;i++){
+            listid[i]=databaseControl.productID().get(i);
+        }
+        return listid;
     }
 
 }
