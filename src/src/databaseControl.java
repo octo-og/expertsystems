@@ -9,7 +9,7 @@ public class databaseControl {
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/expert","devi","pass");
+                    "jdbc:mysql://localhost:3306/expert","root","");
             Statement stmt=con.createStatement();
           resultSet=  stmt.execute("insert into product (\n" +
                   "    name,\n" +
@@ -41,7 +41,7 @@ public class databaseControl {
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/expert","devi","pass");
+                    "jdbc:mysql://localhost:3306/expert","root","");
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery(" select name from product;");
             while(rs.next()){
@@ -67,7 +67,7 @@ public class databaseControl {
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/expert","devi","pass");
+                    "jdbc:mysql://localhost:3306/expert","root","");
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery(" select colour from product;");
             while(rs.next()){
@@ -93,7 +93,7 @@ public class databaseControl {
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/expert","devi","pass");
+                    "jdbc:mysql://localhost:3306/expert","root","");
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery(" select size from product;");
             while(rs.next()){
@@ -119,7 +119,7 @@ public class databaseControl {
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/expert","devi","pass");
+                    "jdbc:mysql://localhost:3306/expert","root","");
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery(" select weight from product;");
             while(rs.next()){
@@ -145,7 +145,7 @@ public class databaseControl {
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/expert","devi","pass");
+                    "jdbc:mysql://localhost:3306/expert","root","");
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery(" select price from product;");
             while(rs.next()){
@@ -171,7 +171,7 @@ public class databaseControl {
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/expert","devi","pass");
+                    "jdbc:mysql://localhost:3306/expert","root","");
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery(" select count(name)from product;");
             while(rs.next())

@@ -370,8 +370,9 @@ public class product extends javax.swing.JFrame {
         int length = databaseControl.nameCount();
         String[] list;
         list=productControl.displayNames();
-
-        if(length==1){
+        if(length==0){
+        }
+        else if(length==1){
             listName1.setText(list[0]);
         } else if (length==2) {
             listName1.setText(list[0]);
@@ -392,7 +393,8 @@ public class product extends javax.swing.JFrame {
             listName3.setText(list[2]);
             listName4.setText(list[3]);
             listName5.setText(list[4]);
-        }else {
+        }
+        else {
             listName1.setText(list[0]);
             listName2.setText(list[1]);
             listName3.setText(list[2]);
