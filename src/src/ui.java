@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import javax.swing.*;
+
 /**
  *
  * @author richy
@@ -93,6 +95,8 @@ public class ui extends javax.swing.JFrame {
         jCheckBox1.setText("Yes");
 
         jCheckBox2.setText("No");
+        buttonGroup1.add(jCheckBox1);
+        buttonGroup1.add(jCheckBox2);
 
         jLabel4.setText("Q2.Where do you work?");
 
@@ -103,6 +107,8 @@ public class ui extends javax.swing.JFrame {
         jCheckBox3.setText("Yes");
 
         jCheckBox4.setText("No");
+        buttonGroup2.add(jCheckBox3);
+        buttonGroup2.add(jCheckBox4);
 
         jLabel6.setText("Q4.Current level of study?");
 
@@ -234,12 +240,16 @@ public class ui extends javax.swing.JFrame {
         jCheckBox14.setText("Yes");
 
         jCheckBox15.setText("No");
+        buttonGroup3.add(jCheckBox14);
+        buttonGroup3.add(jCheckBox15);
 
         jLabel31.setText("Q8. Are you capable of purchasing it?");
 
         jCheckBox16.setText("Yes");
 
         jCheckBox17.setText("No");
+        buttonGroup4.add(jCheckBox16);
+        buttonGroup4.add(jCheckBox17);
 
         jButton6.setText("Confirm");
 
@@ -541,4 +551,10 @@ public class ui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration
+
+    ButtonGroup buttonGroup = new ButtonGroup();
+    ButtonGroup buttonGroup1 = new ButtonGroup();
+    ButtonGroup buttonGroup2 = new ButtonGroup();
+    ButtonGroup buttonGroup3 = new ButtonGroup();
+    ButtonGroup buttonGroup4 = new ButtonGroup();
 }
