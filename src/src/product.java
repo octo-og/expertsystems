@@ -37,6 +37,7 @@ public class product extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         jLabel6 = new javax.swing.JLabel();
@@ -112,6 +113,10 @@ public class product extends javax.swing.JFrame {
         jCheckBox16 = new javax.swing.JCheckBox();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         jButton2.setText("Remove product");
         jButton2.setFocusable(false);
@@ -156,6 +161,8 @@ public class product extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -226,6 +233,7 @@ public class product extends javax.swing.JFrame {
         jLabel5.setText("Color");
 
         jButton5.setText("Add Product");
+
         jButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -316,7 +324,8 @@ public class product extends javax.swing.JFrame {
                 }
             }
         });
-        //Actions button
+
+
         jButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -359,196 +368,196 @@ public class product extends javax.swing.JFrame {
 
                     }
                     else {//name update
-                            if(jCheckBox1.isSelected()){
+                        if(jCheckBox1.isSelected()){
 
-                                if (data.matches("^[a-zA-Z0-9]*$")) {
-                                    //update database
+                            if (data.matches("^[a-zA-Z0-9]*$")) {
+                                //update database
 
-                                    if(jCheckBox6.isSelected())
-                                    {
-                                        String productId= productId1.getText();
-                                        if(databaseControl.nameupdate(data,productId)){
-                                            jCheckBox6.setEnabled(true);
-                                            jCheckBox7.setEnabled(true);
-                                            jCheckBox8.setEnabled(true);
-                                            jCheckBox9.setEnabled(true);
-                                            jCheckBox10.setEnabled(true);
-                                            jCheckBox11.setEnabled(true);
-                                            displayproducts();
-                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
-                                        }else {
-                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+                                if(jCheckBox6.isSelected())
+                                {
+                                    String productId= productId1.getText();
+                                    if(databaseControl.nameupdate(data,productId)){
+                                        jCheckBox6.setEnabled(true);
+                                        jCheckBox7.setEnabled(true);
+                                        jCheckBox8.setEnabled(true);
+                                        jCheckBox9.setEnabled(true);
+                                        jCheckBox10.setEnabled(true);
+                                        jCheckBox11.setEnabled(true);
+                                        displayproducts();
+                                        JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                    }else {
+                                        JOptionPane.showMessageDialog(jPanel3,"Error occurred");
 
-                                        }
-                                    }
-                                    else if(jCheckBox7.isSelected())
-                                    {
-                                        String productId= productId2.getText();
-                                        if(databaseControl.nameupdate(data,productId)){
-                                            jCheckBox6.setEnabled(true);
-                                            jCheckBox7.setEnabled(true);
-                                            jCheckBox8.setEnabled(true);
-                                            jCheckBox9.setEnabled(true);
-                                            jCheckBox10.setEnabled(true);
-                                            jCheckBox11.setEnabled(true);
-                                            displayproducts();
-                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
-                                        }else {
-                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
-
-                                        }
-                                    }
-                                    else if(jCheckBox8.isSelected())
-                                    {
-                                        String productId= prductId3.getText();
-                                        if(databaseControl.nameupdate(data,productId)){
-                                            jCheckBox6.setEnabled(true);
-                                            jCheckBox7.setEnabled(true);
-                                            jCheckBox8.setEnabled(true);
-                                            jCheckBox9.setEnabled(true);
-                                            jCheckBox10.setEnabled(true);
-                                            jCheckBox11.setEnabled(true);
-                                            displayproducts();
-                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
-                                        }else {
-                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
-
-                                        }
-                                    }
-                                    else if(jCheckBox9.isSelected())
-                                    {
-                                        String productId= productId4.getText();
-                                        if(databaseControl.nameupdate(data,productId)){
-                                            jCheckBox6.setEnabled(true);
-                                            jCheckBox7.setEnabled(true);
-                                            jCheckBox8.setEnabled(true);
-                                            jCheckBox9.setEnabled(true);
-                                            jCheckBox10.setEnabled(true);
-                                            jCheckBox11.setEnabled(true);
-                                            displayproducts();
-                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
-                                        }else {
-                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
-
-                                        }
-                                    }
-                                    else if(jCheckBox11.isSelected())
-                                    {
-                                        String productId= productId5.getText();
-                                        if(databaseControl.nameupdate(data,productId)){
-                                            jCheckBox6.setEnabled(true);
-                                            jCheckBox7.setEnabled(true);
-                                            jCheckBox8.setEnabled(true);
-                                            jCheckBox9.setEnabled(true);
-                                            jCheckBox10.setEnabled(true);
-                                            jCheckBox11.setEnabled(true);
-                                            displayproducts();
-                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
-                                        }else {
-                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
-
-                                        }
                                     }
                                 }
-                                else {
-                                    JOptionPane.showMessageDialog(jPanel3,"Enter a valid name");
-                                }
-                            }//colour update
-                            else if(jCheckBox5.isSelected()){
-                                if (data.matches("^[a-zA-Z0-9]*$")) {
-                                    //update database
-                                    if(jCheckBox6.isSelected())
-                                    {
-                                        String productId= productId1.getText();
-                                        if(databaseControl.coloutUpdate(data,productId)){
-                                            jCheckBox6.setEnabled(true);
-                                            jCheckBox7.setEnabled(true);
-                                            jCheckBox8.setEnabled(true);
-                                            jCheckBox9.setEnabled(true);
-                                            jCheckBox10.setEnabled(true);
-                                            jCheckBox11.setEnabled(true);
-                                            displayproducts();
-                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
-                                        }else {
-                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+                                else if(jCheckBox7.isSelected())
+                                {
+                                    String productId= productId2.getText();
+                                    if(databaseControl.nameupdate(data,productId)){
+                                        jCheckBox6.setEnabled(true);
+                                        jCheckBox7.setEnabled(true);
+                                        jCheckBox8.setEnabled(true);
+                                        jCheckBox9.setEnabled(true);
+                                        jCheckBox10.setEnabled(true);
+                                        jCheckBox11.setEnabled(true);
+                                        displayproducts();
+                                        JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                    }else {
+                                        JOptionPane.showMessageDialog(jPanel3,"Error occurred");
 
-                                        }
-                                    }
-                                    else if(jCheckBox7.isSelected())
-                                    {
-                                        String productId= productId2.getText();
-                                        if(databaseControl.coloutUpdate(data,productId)){
-                                            jCheckBox6.setEnabled(true);
-                                            jCheckBox7.setEnabled(true);
-                                            jCheckBox8.setEnabled(true);
-                                            jCheckBox9.setEnabled(true);
-                                            jCheckBox10.setEnabled(true);
-                                            jCheckBox11.setEnabled(true);
-                                            displayproducts();
-                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
-                                        }else {
-                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
-
-                                        }
-                                    }
-                                    else if(jCheckBox8.isSelected())
-                                    {
-                                        String productId= prductId3.getText();
-                                        if(databaseControl.coloutUpdate(data,productId)){
-                                            jCheckBox6.setEnabled(true);
-                                            jCheckBox7.setEnabled(true);
-                                            jCheckBox8.setEnabled(true);
-                                            jCheckBox9.setEnabled(true);
-                                            jCheckBox10.setEnabled(true);
-                                            jCheckBox11.setEnabled(true);
-                                            displayproducts();
-                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
-                                        }else {
-                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
-
-                                        }
-                                    }
-                                    else if(jCheckBox9.isSelected())
-                                    {
-                                        String productId= productId4.getText();
-                                        if(databaseControl.coloutUpdate(data,productId)){
-                                            jCheckBox6.setEnabled(true);
-                                            jCheckBox7.setEnabled(true);
-                                            jCheckBox8.setEnabled(true);
-                                            jCheckBox9.setEnabled(true);
-                                            jCheckBox10.setEnabled(true);
-                                            jCheckBox11.setEnabled(true);
-                                            displayproducts();
-                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
-                                        }else {
-                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
-
-                                        }
-                                    }
-                                    else if(jCheckBox11.isSelected())
-                                    {
-                                        String productId= productId5.getText();
-                                        if(databaseControl.coloutUpdate(data,productId)){
-                                            jCheckBox6.setEnabled(true);
-                                            jCheckBox7.setEnabled(true);
-                                            jCheckBox8.setEnabled(true);
-                                            jCheckBox9.setEnabled(true);
-                                            jCheckBox10.setEnabled(true);
-                                            jCheckBox11.setEnabled(true);
-                                            displayproducts();
-                                            JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
-                                        }else {
-                                            JOptionPane.showMessageDialog(jPanel3,"Error occurred");
-
-                                        }
                                     }
                                 }
-                                else {
-                                    JOptionPane.showMessageDialog(jPanel3,"Enter a valid Colour");
+                                else if(jCheckBox8.isSelected())
+                                {
+                                    String productId= prductId3.getText();
+                                    if(databaseControl.nameupdate(data,productId)){
+                                        jCheckBox6.setEnabled(true);
+                                        jCheckBox7.setEnabled(true);
+                                        jCheckBox8.setEnabled(true);
+                                        jCheckBox9.setEnabled(true);
+                                        jCheckBox10.setEnabled(true);
+                                        jCheckBox11.setEnabled(true);
+                                        displayproducts();
+                                        JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                    }else {
+                                        JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                    }
                                 }
+                                else if(jCheckBox9.isSelected())
+                                {
+                                    String productId= productId4.getText();
+                                    if(databaseControl.nameupdate(data,productId)){
+                                        jCheckBox6.setEnabled(true);
+                                        jCheckBox7.setEnabled(true);
+                                        jCheckBox8.setEnabled(true);
+                                        jCheckBox9.setEnabled(true);
+                                        jCheckBox10.setEnabled(true);
+                                        jCheckBox11.setEnabled(true);
+                                        displayproducts();
+                                        JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                    }else {
+                                        JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                    }
+                                }
+                                else if(jCheckBox11.isSelected())
+                                {
+                                    String productId= productId5.getText();
+                                    if(databaseControl.nameupdate(data,productId)){
+                                        jCheckBox6.setEnabled(true);
+                                        jCheckBox7.setEnabled(true);
+                                        jCheckBox8.setEnabled(true);
+                                        jCheckBox9.setEnabled(true);
+                                        jCheckBox10.setEnabled(true);
+                                        jCheckBox11.setEnabled(true);
+                                        displayproducts();
+                                        JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                    }else {
+                                        JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                    }
+                                }
+                            }
+                            else {
+                                JOptionPane.showMessageDialog(jPanel3,"Enter a valid name");
+                            }
+                        }//colour update
+                        else if(jCheckBox5.isSelected()){
+                            if (data.matches("^[a-zA-Z0-9]*$")) {
+                                //update database
+                                if(jCheckBox6.isSelected())
+                                {
+                                    String productId= productId1.getText();
+                                    if(databaseControl.coloutUpdate(data,productId)){
+                                        jCheckBox6.setEnabled(true);
+                                        jCheckBox7.setEnabled(true);
+                                        jCheckBox8.setEnabled(true);
+                                        jCheckBox9.setEnabled(true);
+                                        jCheckBox10.setEnabled(true);
+                                        jCheckBox11.setEnabled(true);
+                                        displayproducts();
+                                        JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                    }else {
+                                        JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                    }
+                                }
+                                else if(jCheckBox7.isSelected())
+                                {
+                                    String productId= productId2.getText();
+                                    if(databaseControl.coloutUpdate(data,productId)){
+                                        jCheckBox6.setEnabled(true);
+                                        jCheckBox7.setEnabled(true);
+                                        jCheckBox8.setEnabled(true);
+                                        jCheckBox9.setEnabled(true);
+                                        jCheckBox10.setEnabled(true);
+                                        jCheckBox11.setEnabled(true);
+                                        displayproducts();
+                                        JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                    }else {
+                                        JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                    }
+                                }
+                                else if(jCheckBox8.isSelected())
+                                {
+                                    String productId= prductId3.getText();
+                                    if(databaseControl.coloutUpdate(data,productId)){
+                                        jCheckBox6.setEnabled(true);
+                                        jCheckBox7.setEnabled(true);
+                                        jCheckBox8.setEnabled(true);
+                                        jCheckBox9.setEnabled(true);
+                                        jCheckBox10.setEnabled(true);
+                                        jCheckBox11.setEnabled(true);
+                                        displayproducts();
+                                        JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                    }else {
+                                        JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                    }
+                                }
+                                else if(jCheckBox9.isSelected())
+                                {
+                                    String productId= productId4.getText();
+                                    if(databaseControl.coloutUpdate(data,productId)){
+                                        jCheckBox6.setEnabled(true);
+                                        jCheckBox7.setEnabled(true);
+                                        jCheckBox8.setEnabled(true);
+                                        jCheckBox9.setEnabled(true);
+                                        jCheckBox10.setEnabled(true);
+                                        jCheckBox11.setEnabled(true);
+                                        displayproducts();
+                                        JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                    }else {
+                                        JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                    }
+                                }
+                                else if(jCheckBox11.isSelected())
+                                {
+                                    String productId= productId5.getText();
+                                    if(databaseControl.coloutUpdate(data,productId)){
+                                        jCheckBox6.setEnabled(true);
+                                        jCheckBox7.setEnabled(true);
+                                        jCheckBox8.setEnabled(true);
+                                        jCheckBox9.setEnabled(true);
+                                        jCheckBox10.setEnabled(true);
+                                        jCheckBox11.setEnabled(true);
+                                        displayproducts();
+                                        JOptionPane.showMessageDialog(jPanel3,"Update Recieved");
+                                    }else {
+                                        JOptionPane.showMessageDialog(jPanel3,"Error occurred");
+
+                                    }
+                                }
+                            }
+                            else {
+                                JOptionPane.showMessageDialog(jPanel3,"Enter a valid Colour");
                             }
                         }
                     }
+                }
 
 
                 else {
@@ -990,7 +999,7 @@ public class product extends javax.swing.JFrame {
                 String data=Update.getText();
             }
         });
-//Activating Action checkBoxes
+        //Activating Action checkBoxes
         buttonGroup.add(jCheckBox1);
         buttonGroup.add(jCheckBox2);
         buttonGroup.add(jCheckBox3);
@@ -1030,48 +1039,45 @@ public class product extends javax.swing.JFrame {
                                                         .addComponent(price, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(color, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jCheckBox2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jCheckBox3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jCheckBox4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jCheckBox5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING))
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jCheckBox5)
+                                                        .addComponent(jCheckBox2)
+                                                        .addComponent(jCheckBox3)
+                                                        .addComponent(jCheckBox4)
+                                                        .addComponent(jCheckBox1))
                                                 .addGap(0, 0, Short.MAX_VALUE))
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButton7)))
+                                                .addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton7)
                                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
                 jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addContainerGap()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(jCheckBox1)))
-                                .addGap(18, 18, 18)
+                                        .addComponent(jCheckBox1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(size, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jCheckBox2))
-                                .addGap(18, 18, 18)
+                                .addGap(26, 26, 26)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(weight, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jCheckBox3))
+                                .addGap(23, 23, 23)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jCheckBox4))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jCheckBox4)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jCheckBox5)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jCheckBox5))
+                                .addGap(42, 42, 42)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1090,8 +1096,7 @@ public class product extends javax.swing.JFrame {
 
         jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-
-
+                jCheckBox8ActionPerformed(evt);
             }
         });
 
@@ -1229,7 +1234,7 @@ public class product extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(jPanel5Layout.createSequentialGroup()
                                                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGap(57, 57, 57)
                                                 .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(jPanel5Layout.createSequentialGroup()
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1304,11 +1309,43 @@ public class product extends javax.swing.JFrame {
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(productStatusId5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(statusId5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(64, 64, 64)
+                                .addGap(75, 75, 75)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(66, Short.MAX_VALUE))
+                                .addContainerGap(88, Short.MAX_VALUE))
+        );
+
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel15.setText("Recommendation");
+        jLabel15.setBorder(new javax.swing.border.MatteBorder(null));
+        jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+                jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(187, 187, 187)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(504, Short.MAX_VALUE))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane2)
+                                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+                jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1316,31 +1353,34 @@ public class product extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                                .addContainerGap()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(13, 13, 13)))
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(colorTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                                                        .addComponent(weightTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(sizeTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(nameTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(priceTextField, javax.swing.GroupLayout.Alignment.LEADING))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGap(13, 13, 13)))
+                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                        .addComponent(colorTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                                                                        .addComponent(weightTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(sizeTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(nameTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(priceTextField, javax.swing.GroupLayout.Alignment.LEADING))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1350,35 +1390,40 @@ public class product extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGap(25, 25, 25)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                                .addGap(25, 25, 25)
+                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addGap(18, 18, 18)
+                                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                                                                                        .addComponent(sizeTextField))
+                                                                                .addGap(18, 18, 18)
+                                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                                                                                        .addComponent(weightTextField))
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                                                                                        .addComponent(priceTextField))
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                                                                                        .addComponent(colorTextField))
+                                                                                .addGap(35, 35, 35)
+                                                                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                                .addContainerGap()
+                                                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                                 .addGap(18, 18, 18)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                                                        .addComponent(sizeTextField))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                                                        .addComponent(weightTextField))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                                                        .addComponent(priceTextField))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                                                        .addComponent(colorTextField))
-                                                .addGap(35, 35, 35)
-                                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(257, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1406,9 +1451,6 @@ public class product extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
-        //
-
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1518,6 +1560,7 @@ public class product extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1531,7 +1574,11 @@ public class product extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTree jTree1;
     private javax.swing.JLabel listName1;
@@ -1562,6 +1609,7 @@ public class product extends javax.swing.JFrame {
     private javax.swing.JLabel statusProductId;
     private javax.swing.JLabel weight;
     private javax.swing.JTextField weightTextField;
+
     ButtonGroup buttonGroup = new ButtonGroup();
     ButtonGroup listButtonGroup = new ButtonGroup();
     ButtonGroup statusButtonGroup = new ButtonGroup();
