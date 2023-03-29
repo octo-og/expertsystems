@@ -5,6 +5,8 @@
  */
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -103,7 +105,7 @@ public class ui extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("This information wil not be used for unlawful activities.");
 
-        jLabel3.setText("Q1.Are you employed?");
+        jLabel3.setText("Q1.Are you working?");
 
         jCheckBox1.setText("Yes");
 
@@ -123,7 +125,7 @@ public class ui extends javax.swing.JFrame {
         buttonGroup2.add(jCheckBox3);
         buttonGroup2.add(jCheckBox4);
 
-        jLabel6.setText("Q4.Current level of study?");
+        jLabel6.setText("Q4.Level of study?");
 
         jButton2.setText("Answer");
 
@@ -140,7 +142,237 @@ public class ui extends javax.swing.JFrame {
         jButton7.setText("Cancel");
 
         jButton8.setText("Ok");
+        buttonGroup.add(jCheckBox9);
+        buttonGroup.add(jCheckBox10);
+        buttonGroup.add(jCheckBox11);
+        buttonGroup.add(jCheckBox12);
+        buttonGroup.add(jCheckBox13);
 
+        jPanel2.setVisible(false);
+
+       jCheckBox1.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+
+               if(jCheckBox1.isSelected()){
+                   jButton1.setEnabled(true);
+               }
+           }
+       });
+       jCheckBox2.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               if(jCheckBox2.isSelected()){
+                   jButton1.setEnabled(false);
+               }
+           }
+       });
+        jButton8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(jButton2.isSelected()){
+                    int result= JOptionPane.showConfirmDialog(jPanel2,"Confirm to Edit");
+                    switch (result){
+                        case JOptionPane.YES_OPTION :
+                            jPanel2.setVisible(false);
+                            //code
+
+                            break;
+                        case JOptionPane.NO_OPTION:
+                            //code
+                            jPanel2.setVisible(false);
+                            break;
+                        case JOptionPane.CANCEL_OPTION:
+                            jPanel2.setVisible(false);
+                            //code
+                            break;
+                        case JOptionPane.CLOSED_OPTION:
+                            jPanel2.setVisible(false);
+                            //code
+                            break;
+                    }
+                }
+               }
+        });
+        jButton7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jPanel2.setVisible(false);
+            }
+        });
+        jButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buttonGroup5.add(jCheckBox5);
+                buttonGroup5.add(jCheckBox6);
+                buttonGroup5.add(jCheckBox7);
+                buttonGroup5.add(jCheckBox8);
+                buttonGroup5.add(jCheckBox18);
+                jPanel2.setVisible(true);
+                jLabel9.setText("SELECT ONE BELLOW");
+                jLabel32.setText("Teacher");
+                jLabel33.setText("Doctor");
+                jLabel34.setText("Farmer");
+                jLabel35.setText("Business");
+                jLabel36.setText("industry");
+                jCheckBox5.setVisible(true);
+                jCheckBox6.setVisible(true);
+                jCheckBox7.setVisible(true);
+                jLabel32.setVisible(true);
+                jLabel33.setVisible(true);
+                jLabel34.setVisible(true);
+                jLabel35.setVisible(true);
+                jLabel36.setVisible(true);
+                responder[1]= workplace();
+
+
+
+            }
+        });
+        jButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buttonGroup5.add(jCheckBox5);
+                buttonGroup5.add(jCheckBox6);
+                buttonGroup5.add(jCheckBox7);
+                buttonGroup5.add(jCheckBox8);
+                buttonGroup5.add(jCheckBox18);
+                jPanel2.setVisible(true);
+                jLabel32.setVisible(true);
+                jLabel33.setVisible(true);
+                jLabel34.setVisible(true);
+                jLabel35.setVisible(true);
+                jLabel36.setVisible(true);
+                jLabel9.setText("SELECT ONE BELLOW");
+                jLabel32.setText("Primary");
+                jLabel33.setText("Secondary");
+                jLabel34.setText("Diploma");
+                jLabel35.setText("Degree");
+                jLabel36.setText("Postgraduate");
+                jCheckBox5.setVisible(true);
+                jCheckBox6.setVisible(true);
+                jCheckBox7.setVisible(true);
+                responder[3]= levelofstudy();
+
+            }
+        });
+        jButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buttonGroup5.add(jCheckBox5);
+                buttonGroup5.add(jCheckBox6);
+                buttonGroup5.add(jCheckBox7);
+                buttonGroup5.add(jCheckBox8);
+                buttonGroup5.add(jCheckBox18);
+                jPanel2.setVisible(true);
+                jLabel9.setText("SELECT ONE BELLOW");
+                jCheckBox5.setVisible(false);
+                jCheckBox6.setVisible(false);
+                jCheckBox7.setVisible(false);
+                jLabel32.setVisible(false);
+                jLabel33.setVisible(false);
+                jLabel34.setVisible(false);
+                jLabel35.setVisible(true);
+                jLabel36.setVisible(true);
+                jLabel32.setVisible(false);
+                jLabel33.setVisible(false);
+                jLabel34.setVisible(false);
+                jLabel35.setText("Kenya");
+                jLabel36.setText("Other");
+                responder[4]=currentResidence();
+
+            }
+        });
+        jButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buttonGroup5.remove(jCheckBox5);
+                buttonGroup5.remove(jCheckBox6);
+                buttonGroup5.remove(jCheckBox7);
+                buttonGroup5.remove(jCheckBox8);
+                buttonGroup5.remove(jCheckBox18);
+                jPanel2.setVisible(true);
+                jLabel9.setText("SELECT ONE BELLOW");
+                jCheckBox5.setVisible(true);
+                jCheckBox6.setVisible(true);
+                jCheckBox7.setVisible(true);
+                jLabel32.setVisible(true);
+                jLabel33.setVisible(true);
+                jLabel34.setVisible(true);
+                jLabel35.setVisible(true);
+                jLabel36.setVisible(true);
+                jLabel32.setText("Whatsapp");
+                jLabel33.setText("Instagram");
+                jLabel34.setText("Tweeter");
+                jLabel35.setText("Facebook");
+                jLabel36.setText("TikTok");
+                int[] account=new int[5];
+                if(jCheckBox5.isSelected()){
+                    responder[5]=1;
+                }else {
+                    responder[5]=0;
+                }
+                if(jCheckBox6.isSelected()){
+                    responder[6]=2;
+                }else {
+                    responder[6]=0;
+                }
+                if(jCheckBox7.isSelected()){
+                    account[2]=3;
+                }else {
+                    account[2]=0;
+                }
+                if(jCheckBox8.isSelected()){
+                    account[3]=4;
+                }else {
+                    account[3]=0;
+                }
+                if(jCheckBox18.isSelected()){
+                    account[4]=5;
+                }else {
+                    account[4]=0;
+                }
+                int[] data=socialmedia();
+                for (int i=0;i<data.length;i++){
+                    responder[i+5]=data[i];
+                }
+
+            }
+        });
+
+        jButton6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if((jCheckBox14.isSelected()||jCheckBox15.isSelected())&&(jCheckBox16.isSelected()||jCheckBox17.isSelected())){
+                    if(jCheckBox1.isSelected()){
+                        responder[0]=1;
+                    }
+                    else if(jCheckBox2.isSelected()){
+                        responder[1]=0;
+                        responder[0]=0;
+                    }
+                    if(jCheckBox3.isSelected()){
+                        responder[2]=1;
+                    }
+                    else if(jCheckBox4.isSelected()){
+                        responder[2]=0;
+                    }
+                    if(jCheckBox14.isSelected()){
+                        responder[10]=1;
+                    }
+                    else if(jCheckBox15.isSelected()){
+                        responder[10]=0;
+                    }
+                    if(jCheckBox16.isSelected()){
+                        responder[11]=1;
+                    }
+                    else if(jCheckBox17.isSelected()){
+                        responder[11]=0;
+                    }
+
+                }
+            }
+        });
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -648,10 +880,89 @@ public class ui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration
-
+    databaseControl databaseControl = new databaseControl();
     ButtonGroup buttonGroup = new ButtonGroup();
     ButtonGroup buttonGroup1 = new ButtonGroup();
     ButtonGroup buttonGroup2 = new ButtonGroup();
     ButtonGroup buttonGroup3 = new ButtonGroup();
     ButtonGroup buttonGroup4 = new ButtonGroup();
+    ButtonGroup buttonGroup5 = new ButtonGroup();
+    Integer[] responder= new Integer[12];
+    public int workplace(){
+        int workplace = 0;
+        if(jCheckBox5.isSelected()){
+            workplace=1;
+        }
+        else if(jCheckBox6.isSelected()){
+             workplace=2;
+        }
+        else if(jCheckBox7.isSelected()){
+            workplace=3;
+        }
+        else if(jCheckBox8.isSelected()){
+             workplace=4;
+        }
+        else if(jCheckBox18.isSelected()){
+            workplace=5;
+        }
+        return workplace;
+    }
+    public int levelofstudy(){
+        int levelofstudy = 0;
+        if(jCheckBox5.isSelected()){
+            levelofstudy=1;
+        }
+        else if(jCheckBox6.isSelected()){
+            levelofstudy=2;
+        }
+        else if(jCheckBox7.isSelected()){
+            levelofstudy=3;
+        }
+        else if(jCheckBox8.isSelected()){
+            levelofstudy=4;
+        }
+        else if(jCheckBox18.isSelected()){
+            levelofstudy=5;
+        }
+        return levelofstudy;
+    }
+    public int[] socialmedia(){
+        int[] account=new int[5];
+        if(jCheckBox5.isSelected()){
+            account[0]=1;
+        }else {
+            account[0]=0;
+        }
+        if(jCheckBox6.isSelected()){
+            account[1]=2;
+        }else {
+            account[1]=0;
+        }
+         if(jCheckBox7.isSelected()){
+            account[2]=3;
+        }else {
+             account[2]=0;
+         }
+        if(jCheckBox8.isSelected()){
+            account[3]=4;
+        }else {
+            account[3]=0;
+        }
+         if(jCheckBox18.isSelected()){
+            account[4]=5;
+        }else {
+             account[4]=0;
+         }
+        return account;
+    }
+    public int currentResidence(){
+        int residence = 0;
+         if(jCheckBox8.isSelected()){
+            residence=1;
+        }
+        else if(jCheckBox18.isSelected()){
+            residence=0;
+        }
+        return residence;
+    }
 }

@@ -31,6 +31,36 @@ public class databaseControl {
         }
 
         return resultSet;
+    } public boolean responder(int working,int workplace, int student, int levelofstudy, int residence,int whatsapp,int instagram, int tweeter,
+                               int facebook, int tiktok, int willing, int able)
+    {
+        boolean resultSet = false;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+          resultSet=  stmt.execute("insert into responder (\n" +
+                  "     working,\n" +
+                  "   workplace,\n" +
+                  "   student,\n" +
+                  "   levelofstudy,\n" +
+                  "    residence)\n" + " whatsapp)\n" + "instagram)\n" + "tweeter)\n" + " facebook)\n" + " tiktok)\n" + " willing)\n" + " able)\n" +
+                  "values (\n" +
+                  "    '"+ working+"',\n" +
+                  "     '"+workplace+"',\n" +
+                  "    '"+student+"',\n" +
+                  "    '"+levelofstudy+"',\n" +
+                  "    '"+residence+"')\n" +"'"+whatsapp+"')\n" +"'"+instagram+"')\n" +" '"+tweeter+"')\n" +" '"+facebook+"')\n" +" '"+ tiktok+"')\n" +" '"+willing+"')\n" +"'"+able+"')\n" +
+                  ";");
+                resultSet=true;
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            System.out.println(throwable);
+        }
+
+        return resultSet;
     }
 
     public ArrayList<String> name()
