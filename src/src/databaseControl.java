@@ -31,8 +31,9 @@ public class databaseControl {
         }
 
         return resultSet;
-    } public boolean responder(int working,int workplace, int student, int levelofstudy, int residence,int whatsapp,int instagram, int tweeter,
-                               int facebook, int tiktok, int willing, int able)
+    }
+
+    public boolean productassessment(String name,String size,String weight,String price,String colour,String productId)
     {
         boolean resultSet = false;
         try {
@@ -41,19 +42,66 @@ public class databaseControl {
             Connection con= DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/expert","root","");
             Statement stmt=con.createStatement();
-          resultSet=  stmt.execute("insert into responder (\n" +
-                  "     working,\n" +
-                  "   workplace,\n" +
-                  "   student,\n" +
-                  "   levelofstudy,\n" +
-                  "    residence)\n" + " whatsapp)\n" + "instagram)\n" + "tweeter)\n" + " facebook)\n" + " tiktok)\n" + " willing)\n" + " able)\n" +
+          resultSet=  stmt.execute("insert into product_to_assess(\n" +
+                  "    name,\n" +
+                  "    size,\n" +
+                  "    weight,\n" +
+                  "    price,\n" +
+                  "    colour,\n" +
+                  "    productID)\n" +
                   "values (\n" +
-                  "    '"+ working+"',\n" +
-                  "     '"+workplace+"',\n" +
-                  "    '"+student+"',\n" +
-                  "    '"+levelofstudy+"',\n" +
-                  "    '"+residence+"')\n" +"'"+whatsapp+"')\n" +"'"+instagram+"')\n" +" '"+tweeter+"')\n" +" '"+facebook+"')\n" +" '"+ tiktok+"')\n" +" '"+willing+"')\n" +"'"+able+"')\n" +
+                  "    '"+name+"',\n" +
+                  "    '"+size+"',\n" +
+                  "    '"+weight+"',\n" +
+                  "    '"+price+"',\n" +
+                  "    '"+colour+"',\n" +
+                  "    '"+productId+"')\n" +
                   ";");
+                resultSet=true;
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            System.out.println(throwable);
+        }
+
+        return resultSet;
+    }
+    public boolean assessedproduct(String name,String productID)
+    {
+        boolean resultSet = false;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+          resultSet=  stmt.execute("insert into product (\n" +
+                  "    name,\n" +
+                  "    product_id,\n" +
+
+                  "values (\n" +
+                  "    '"+name+"',\n" +
+                  "     '"+productID+"',\n" +
+                  ";");
+                resultSet=true;
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            System.out.println(throwable);
+        }
+
+        return resultSet;
+    }
+    public boolean responder(int working,int workplace, int student, int levelofstudy, int residence,int whatsapp,int instagram, int tweeter,
+                               int facebook, int tiktok, int willing, int able,int productID)
+    {
+        boolean resultSet = false;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+          resultSet=  stmt.execute("insert into responder (working,workplace,student,levelofstudy,residence,whatsapp,instagram,tweeter,facebook,tiktok,willing,able,productID)" +
+                  " values ('"+ working+"','"+workplace+"','"+student+"','"+levelofstudy+"','"+residence+"','"+whatsapp+"','"+instagram+"','"+tweeter+"','"+facebook+"','"+ tiktok+"','"+willing+"','"+able+"','"+productID+"');");
                 resultSet=true;
         }
         catch (SQLException | ClassNotFoundException throwable) {
@@ -88,7 +136,34 @@ public class databaseControl {
         }
 
         return dbName;
-    } 
+    }
+    public ArrayList<String> AssessmentName()
+    {
+
+        ArrayList<String> dbName =new ArrayList<String>();
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery(" select name from product_to_assess;");
+            while(rs.next()){
+
+                productControl name =  new productControl();
+                name.setName(rs.getString("name"));
+                dbName.add(name.getName());
+
+            }
+
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            System.out.println(throwable);
+        }
+
+        return dbName;
+    }
     public String[] productUpdate(String productId)
     {
 
@@ -113,9 +188,32 @@ public class databaseControl {
         catch (SQLException | ClassNotFoundException throwable) {
             System.out.println(throwable);
         }
-for (int i=0;i<5;i++){
-    System.out.println(product[i]);
-}
+        return product;
+    }
+    public String[] product_in_assessment(String productId)
+    {
+
+       String[] product = new String[5];
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery(" select * from product_to_assess where productID='"+productId+"';");
+            while(rs.next()){
+                product[0]=rs.getString("name");
+                product[1]=rs.getString("size");
+                product[2]=rs.getString("weight");
+                product[3]=rs.getString("price");
+                product[4]=rs.getString("colour");
+            }
+
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            System.out.println(throwable);
+        }
         return product;
     }
     public ArrayList<String> productID()
@@ -144,22 +242,21 @@ for (int i=0;i<5;i++){
 
         return dbproductId;
     }
-    public ArrayList<String> colour()
+ public ArrayList<String>AssessmentproductId()
     {
 
-        ArrayList<String> dbColour =new ArrayList<String>();
+        ArrayList<String> dbproductId =new ArrayList<String>();
         try {
-
             Class.forName("com.mysql.jdbc.Driver");
             Connection con= DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/expert","root","");
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery(" select colour from product;");
+            ResultSet rs=stmt.executeQuery(" select productID from product_to_assess;");
             while(rs.next()){
 
-                productControl name =  new productControl();
-                name.setColor(rs.getString("colour"));
-                dbColour.add(name.getColor());
+                productControl productID =  new productControl();
+                productID.setId(rs.getString("productID"));
+                dbproductId.add(productID.getId());
             }
 
             con.close();
@@ -168,60 +265,9 @@ for (int i=0;i<5;i++){
             System.out.println(throwable);
         }
 
-        return dbColour;
+        return dbproductId;
     }
-    public ArrayList<Float> size()
-    {
 
-        ArrayList<Float> dbSize =new ArrayList<Float>();
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/expert","root","");
-            Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery(" select size from product;");
-            while(rs.next()){
-
-                productControl name =  new productControl();
-                name.setSize(rs.getFloat("size"));
-                dbSize.add(name.getSize());
-            }
-
-            con.close();
-        }
-        catch (SQLException | ClassNotFoundException throwable) {
-            System.out.println(throwable);
-        }
-
-        return dbSize;
-    }
-    public ArrayList<Float> weight()
-    {
-
-        ArrayList<Float> dbWeight =new ArrayList<Float>();
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/expert","root","");
-            Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery(" select weight from product;");
-            while(rs.next()){
-
-                productControl name =  new productControl();
-                name.setWeight(rs.getFloat("weight"));
-                dbWeight.add(name.getWeight());
-            }
-
-            con.close();
-        }
-        catch (SQLException | ClassNotFoundException throwable) {
-            System.out.println(throwable);
-        }
-
-        return dbWeight;
-    }
     public boolean nameupdate(String name,String productID)
     {
         boolean done = false;
@@ -338,4 +384,425 @@ for (int i=0;i<5;i++){
         }
         return result;
     }
+    public int AssessmentNameCount()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery(" select count(name) from product_to_assess;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+    public boolean deleteproduct(String id)
+    {
+        boolean done;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            stmt.execute("delete from product where productID='"+id+"';");
+            con.close();
+            done=true;
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            throwable.printStackTrace();
+            done=false;
+        }
+
+        return done;
+    }
+
+    public int doctorBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"2\" and willing =1;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+    public int doctorAbleBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"2\" and able =1;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+    public int doctorNotBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"2\" and willing =0;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+    public int doctorNotAbleBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"2\" and able =0;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+ public int teacherBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"1\" and willing =1;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+public int teacherNotBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"1\" and willing =0;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+public int farmerBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"3\" and willing =1;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+
+public int farmerNotBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"3\" and willing =0;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+public int indurstryBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"5\" and willing =1;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+    public int indurstryNotBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"5\" and willing =0;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+ public int businessBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"4\" and willing =1;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+public int businessNotBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"workplace\") from responder where workplace=\"4\" and willing =0;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+public int studentBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"student\") from responder where student=\"1\" and willing =1;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+public int studentNotBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"student\") from responder where student=\"1\" and willing =0;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+public int allWorkers()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"working\") from responder where working=\"1\";");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+    public int allResponders()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"working\") from responder;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+
+ public int allYesBuy()
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"willing\") from responder where willing=\"1\";");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+            System.out.println(result);
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+
+
+
 }

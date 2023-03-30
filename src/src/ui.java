@@ -7,6 +7,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 /**
  *
@@ -170,7 +171,7 @@ public class ui extends javax.swing.JFrame {
         jButton8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(jButton2.isSelected()){
+
                     int result= JOptionPane.showConfirmDialog(jPanel2,"Confirm to Edit");
                     switch (result){
                         case JOptionPane.YES_OPTION :
@@ -192,12 +193,19 @@ public class ui extends javax.swing.JFrame {
                             break;
                     }
                 }
-               }
+
         });
+        displayProductsInAssessment();
         jButton7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 jPanel2.setVisible(false);
+            }
+        });
+        jButton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
         jButton1.addActionListener(new ActionListener() {
@@ -223,7 +231,21 @@ public class ui extends javax.swing.JFrame {
                 jLabel34.setVisible(true);
                 jLabel35.setVisible(true);
                 jLabel36.setVisible(true);
-                responder[1]= workplace();
+                if(jCheckBox5.isSelected()){
+                    responder[1] =1;
+                }
+                else if(jCheckBox6.isSelected()){
+                    responder[1]=2;
+                }
+                else if(jCheckBox7.isSelected()){
+                    responder[1]=3;
+                }
+                else if(jCheckBox8.isSelected()){
+                    responder[1]=4;
+                }
+                else if(jCheckBox18.isSelected()){
+                    responder[1]=5;
+                }
 
 
 
@@ -252,7 +274,22 @@ public class ui extends javax.swing.JFrame {
                 jCheckBox5.setVisible(true);
                 jCheckBox6.setVisible(true);
                 jCheckBox7.setVisible(true);
-                responder[3]= levelofstudy();
+
+                if(jCheckBox5.isSelected()){
+                    responder[3]=1;
+                }
+                else if(jCheckBox6.isSelected()){
+                    responder[3]=2;
+                }
+                else if(jCheckBox7.isSelected()){
+                    responder[3]=3;
+                }
+                else if(jCheckBox8.isSelected()){
+                    responder[3]=4;
+                }
+                else if(jCheckBox18.isSelected()){
+                    responder[3]=5;
+                }
 
             }
         });
@@ -279,7 +316,13 @@ public class ui extends javax.swing.JFrame {
                 jLabel34.setVisible(false);
                 jLabel35.setText("Kenya");
                 jLabel36.setText("Other");
-                responder[4]=currentResidence();
+
+                if(jCheckBox8.isSelected()){
+                    responder[4]=1;
+                }
+                else if(jCheckBox18.isSelected()){
+                    responder[4]=0;
+                }
 
             }
         });
@@ -343,6 +386,7 @@ public class ui extends javax.swing.JFrame {
         jButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                databaseControl.doctorBuy();
                 if((jCheckBox14.isSelected()||jCheckBox15.isSelected())&&(jCheckBox16.isSelected()||jCheckBox17.isSelected())){
                     if(jCheckBox1.isSelected()){
                         responder[0]=1;
@@ -369,6 +413,125 @@ public class ui extends javax.swing.JFrame {
                     else if(jCheckBox17.isSelected()){
                         responder[11]=0;
                     }
+                    boolean check=false;
+                    if(responder[0]==null){
+                        JOptionPane.showMessageDialog(jPanel1,"Answer Question 1");
+                    }else {
+                        check=true;
+                    }
+                    if(responder[1]==null){
+                        JOptionPane.showMessageDialog(jPanel1,"Answer Question two");
+                    }else {
+                        check=true;
+                    }
+                    if(responder[3]==null){
+                        JOptionPane.showMessageDialog(jPanel1,"Answer Question three");
+                    }else {
+                        check=true;
+                    }
+                    if(responder[4]==null){
+                        JOptionPane.showMessageDialog(jPanel1,"Answer Question four");
+                    }else {
+                        check=true;
+                    }
+                    if(responder[5]==null){
+                        JOptionPane.showMessageDialog(jPanel1,"Answer Question five");
+                    }else {
+                        check=true;
+                    }
+                    if(responder[5]!=null||responder[6]!=null||responder[7]!=null||responder[8]!=null||responder[9]!=null){
+                        check=true;
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel1,"Please select one option in Q6");
+
+                    }
+                    if(responder[10]==null){
+                        JOptionPane.showMessageDialog(jPanel1,"Answer Q7");
+                    }else {
+                        check=true;
+                    }
+                    if(responder[11]==null){
+                        JOptionPane.showMessageDialog(jPanel1,"Answer Qn 8");
+                    }else {
+                        check=true;
+                    }
+                    if(check){
+                        if (databaseControl.responder(responder[0],responder[1],responder[2],responder[3],responder[4],responder[5],responder[6],responder[7],responder[8],responder[9],responder[10],responder[11],responder[12])){
+                            JOptionPane.showMessageDialog(jPanel1,"Data is received proceed to assess next product");
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(jPanel3,"Error Occurred try again later");
+                        }
+                    }
+
+
+                }
+                else {
+                    JOptionPane.showMessageDialog(jPanel3,"You have to answer Q7 and Q8");
+
+                }
+            }
+        });
+        jButton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(jCheckBox9.isSelected()){
+                    String name = jLabel25.getText();
+                    String[] info= databaseControl.product_in_assessment(products().get(name));
+                    jLabel12.setText(info[0]);
+                    jLabel14.setText(info[1]);
+                    jLabel16.setText(info[2]);
+                    jLabel18.setText(info[3]);
+                    jLabel20.setText(info[4]);
+                    int id=0;
+                    try {
+                        id = Integer.parseInt(products().get(name));
+                        if(id==Integer.parseInt(products().get(name))){
+                            responder[12]=id;
+                        }
+                    }catch (NumberFormatException sizeException){
+                        JOptionPane.showMessageDialog(jPanel1, "Invalid");
+                    }
+
+                } else if (jCheckBox10.isSelected()) {
+                    String name = jLabel26.getText();
+                    String[] info= databaseControl.product_in_assessment(products().get(name));
+                    jLabel12.setText(info[0]);
+                    jLabel14.setText(info[1]);
+                    jLabel16.setText(info[2]);
+                    jLabel18.setText(info[3]);
+                    responder[12]= Integer.valueOf(info[5]);
+                    jLabel20.setText(info[4]);
+
+                } else if (jCheckBox11.isSelected()) {
+                    String name = jLabel27.getText();
+                    String[] info= databaseControl.product_in_assessment(products().get(name));
+                    jLabel12.setText(info[0]);
+                    jLabel14.setText(info[1]);
+                    jLabel16.setText(info[2]);
+                    jLabel18.setText(info[3]);
+                    jLabel20.setText(info[4]);
+                    responder[12]= Integer.valueOf(info[5]);
+
+                } else if (jCheckBox12.isSelected()) {
+                    String name = jLabel28.getText();
+                    String[] info= databaseControl.product_in_assessment(products().get(name));
+                    jLabel12.setText(info[0]);
+                    jLabel14.setText(info[1]);
+                    jLabel16.setText(info[2]);
+                    jLabel18.setText(info[3]);
+                    jLabel20.setText(info[4]);
+                    responder[12]= Integer.valueOf(info[5]);
+
+                }else if(jCheckBox13.isSelected()){
+                    String name = jLabel29.getText();
+                    String[] info= databaseControl.product_in_assessment(products().get(name));
+                    jLabel12.setText(info[0]);
+                    jLabel14.setText(info[1]);
+                    jLabel16.setText(info[2]);
+                    jLabel18.setText(info[3]);
+                    jLabel20.setText(info[4]);
+                    responder[12]= Integer.valueOf(info[5]);
 
                 }
             }
@@ -707,6 +870,7 @@ public class ui extends javax.swing.JFrame {
                                                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(104, 104, 104))))
         );
+
         jPanel4Layout.setVerticalGroup(
                 jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel4Layout.createSequentialGroup()
@@ -887,22 +1051,40 @@ public class ui extends javax.swing.JFrame {
     ButtonGroup buttonGroup3 = new ButtonGroup();
     ButtonGroup buttonGroup4 = new ButtonGroup();
     ButtonGroup buttonGroup5 = new ButtonGroup();
-    Integer[] responder= new Integer[12];
-    public int workplace(){
-        int workplace = 0;
+    productControl productControl = new productControl();
+
+
+    public HashMap<String,String > products(){
+        HashMap<String,String> product = new HashMap<>();
+        productControl.Assessmentdisplayproductid();
+        productControl.displayAssementNames();
+
+        String[] list;
+        String[] ids;
+        list=productControl.displayAssementNames();
+        ids=productControl.Assessmentdisplayproductid();
+        int length= databaseControl.AssessmentNameCount();
+            for(int i =0;i<length;i++){
+                product.put(list[i],ids[i]);
+            }
+        return  product;
+    }
+    Integer[] responder= new Integer[13];
+    public int workplace(int workplace ){
+
         if(jCheckBox5.isSelected()){
             workplace=1;
         }
-        else if(jCheckBox6.isSelected()){
+         if(jCheckBox6.isSelected()){
              workplace=2;
         }
-        else if(jCheckBox7.isSelected()){
+         if(jCheckBox7.isSelected()){
             workplace=3;
         }
-        else if(jCheckBox8.isSelected()){
+        if(jCheckBox8.isSelected()){
              workplace=4;
         }
-        else if(jCheckBox18.isSelected()){
+         if(jCheckBox18.isSelected()){
             workplace=5;
         }
         return workplace;
@@ -931,27 +1113,27 @@ public class ui extends javax.swing.JFrame {
         if(jCheckBox5.isSelected()){
             account[0]=1;
         }else {
-            account[0]=0;
+         //   account[0]=0;
         }
         if(jCheckBox6.isSelected()){
             account[1]=2;
         }else {
-            account[1]=0;
+           // account[1]=0;
         }
          if(jCheckBox7.isSelected()){
             account[2]=3;
         }else {
-             account[2]=0;
+             //account[2]=0;
          }
         if(jCheckBox8.isSelected()){
             account[3]=4;
         }else {
-            account[3]=0;
+           // account[3]=0;
         }
          if(jCheckBox18.isSelected()){
             account[4]=5;
         }else {
-             account[4]=0;
+            // account[4]=0;
          }
         return account;
     }
@@ -965,4 +1147,44 @@ public class ui extends javax.swing.JFrame {
         }
         return residence;
     }
+
+    public void displayProductsInAssessment(){
+
+        String[] list;
+        list=productControl.displayAssementNames();
+        int length= databaseControl.AssessmentNameCount();
+        if(length==0){
+        }
+        else if(length==1){
+            jLabel25.setText(list[0]);
+        } else if (length==2) {
+            jLabel25.setText(list[0]);
+            jLabel26.setText(list[1]);
+
+        } else if (length==3) {
+            jLabel25.setText(list[0]);
+            jLabel26.setText(list[1]);
+            jLabel27.setText(list[2]);
+        } else if (length==4) {
+            jLabel25.setText(list[0]);
+            jLabel26.setText(list[1]);
+            jLabel27.setText(list[2]);
+            jLabel28.setText(list[3]);
+        }
+        else if (length==5) {
+            jLabel25.setText(list[0]);
+            jLabel26.setText(list[1]);
+            jLabel27.setText(list[2]);
+            jLabel28.setText(list[3]);
+            jLabel29.setText(list[4]);
+        }
+        else {
+            jLabel25.setText(list[0]);
+            jLabel26.setText(list[1]);
+            jLabel27.setText(list[2]);
+            jLabel28.setText(list[3]);
+            jLabel29.setText(list[4]);
+        }
+    }
+
 }

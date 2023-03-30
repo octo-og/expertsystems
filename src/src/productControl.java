@@ -1,4 +1,6 @@
 public class productControl {
+    databaseControl databaseControl = new databaseControl();
+
     private String name;
     private float size;
     private float weight;
@@ -67,7 +69,6 @@ public class productControl {
         return "";
     }
     public String[] displayNames(){
-        databaseControl databaseControl = new databaseControl();
         int length = databaseControl.nameCount();
         String[] listNames = new String[length];
         for (int i =0;i<length;i++){
@@ -75,8 +76,15 @@ public class productControl {
         }
         return listNames;
     }
+    public String[] displayAssementNames(){
+        int length = databaseControl.AssessmentNameCount();
+        String[] listNames = new String[length];
+        for (int i =0;i<length;i++){
+            listNames[i]=databaseControl.AssessmentName().get(i);
+        }
+        return listNames;
+    }
     public String[] displayproductid(){
-        databaseControl databaseControl = new databaseControl();
         int length = databaseControl.nameCount();
         String[] listid = new String[length];
         for (int i =0;i<length;i++){
@@ -84,5 +92,14 @@ public class productControl {
         }
         return listid;
     }
+    public String[] Assessmentdisplayproductid(){
+        int length = databaseControl.AssessmentNameCount();
+        String[] listid = new String[length];
+        for (int i =0;i<length;i++){
+            listid[i]=databaseControl.AssessmentproductId().get(i);
+        }
+        return listid;
+    }
+
 
 }

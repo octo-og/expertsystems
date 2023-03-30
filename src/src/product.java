@@ -311,7 +311,6 @@ public class product extends javax.swing.JFrame {
                     }
 //dataFiltered[]  is an array of boolean with true as correct filtration
                     if(dataFiltered[0]&&dataFiltered[1]&&dataFiltered[2]&&dataFiltered[3]&&dataFiltered[4]){
-                        databaseControl databaseControl = new databaseControl();
                         if(databaseControl.productInsert(name,newSize,newWeight,newPrice,color)){
                             JOptionPane.showMessageDialog(jPanel2,"Data added");
                             displayproducts();
@@ -999,6 +998,96 @@ public class product extends javax.swing.JFrame {
                 String data=Update.getText();
             }
         });
+        displayProductsInAssessment();
+        jButton8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if(jCheckBox6.isSelected()){
+                    String productId=productId1.getText();
+                    String[] info= databaseControl.productUpdate(productId);
+                    if(databaseControl.productassessment(info[0],info[1],info[2],info[3],info[4],productId)){
+                        displayProductsInAssessment();
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel4,"ERROR");
+                    }
+                }
+                else if(jCheckBox7.isSelected()){
+                    String productId=productId2.getText();
+                    String[] info= databaseControl.productUpdate(productId);
+                    if(databaseControl.productassessment(info[0],info[1],info[2],info[3],info[4],productId)){
+                        displayProductsInAssessment();
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel4,"ERROR");
+                    }
+                }
+                else if(jCheckBox8.isSelected()){
+                    String productId=prductId3.getText();
+                    String[] info= databaseControl.productUpdate(productId);
+                    if(databaseControl.productassessment(info[0],info[1],info[2],info[3],info[4],productId)){
+                        displayProductsInAssessment();
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel4,"ERROR");
+                    }
+                }
+                else if(jCheckBox9.isSelected()){
+                    String productId=productId4.getText();
+                    String[] info= databaseControl.productUpdate(productId);
+                    if(databaseControl.productassessment(info[0],info[1],info[2],info[3],info[4],productId)){
+                        displayProductsInAssessment();
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel4,"ERROR");
+                    }
+                }
+                else if(jCheckBox11.isSelected()){
+                    String productId=productId5.getText();
+                    String[] info= databaseControl.productUpdate(productId);
+                    if(databaseControl.productassessment(info[0],info[1],info[2],info[3],info[4],productId)){
+                        displayProductsInAssessment();
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel4,"ERROR");
+                    }
+                }
+                else {
+
+                        JOptionPane.showMessageDialog(jPanel4,"No Items Selected");
+
+                }
+            }
+        });
+        jButton9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(jCheckBox6.isSelected()){
+                    if(databaseControl.deleteproduct(productId1.getText())){
+                        displayproducts();
+                    }
+                }
+                else if(jCheckBox7.isSelected()){
+                    if(databaseControl.deleteproduct(productId2.getText())){
+                        displayproducts();
+                    }
+                }
+                else if(jCheckBox8.isSelected()){
+                    if(databaseControl.deleteproduct(prductId3.getText())){
+                        displayproducts();
+                    }
+                }
+                else if(jCheckBox9.isSelected()){
+                    if(databaseControl.deleteproduct(productId4.getText())){
+                        displayproducts();
+                    }
+                }
+                else if(jCheckBox11.isSelected()){
+                    if(databaseControl.deleteproduct(productId5.getText())){
+                        displayproducts();
+                    }
+                }
+                else {
+                }
+
+            }
+        });
         //Activating Action checkBoxes
         buttonGroup.add(jCheckBox1);
         buttonGroup.add(jCheckBox2);
@@ -1629,7 +1718,6 @@ public class product extends javax.swing.JFrame {
         }
         else if(length==1){
             listName1.setText(list[0]);
-            productId2.setText(ids[0]);
             productId1.setText(ids[0]);
         } else if (length==2) {
             listName1.setText(list[0]);
@@ -1678,6 +1766,45 @@ public class product extends javax.swing.JFrame {
             prductId3.setText(ids[2]);
             productId4.setText(ids[3]);
             productId5.setText(ids[4]);
+        }
+    }
+    public void displayProductsInAssessment(){
+
+
+        String[] list;
+        list=productControl.displayAssementNames();
+        int length= databaseControl.AssessmentNameCount();
+        if(length==0){
+        }
+        else if(length==1){
+            statusProductId.setText(list[0]);
+        } else if (length==2) {
+            statusProductId.setText(list[0]);
+            productStatus2.setText(list[1]);
+
+        } else if (length==3) {
+            statusProductId.setText(list[0]);
+            productStatus2.setText(list[1]);
+            productStatus3.setText(list[2]);
+        } else if (length==4) {
+            statusProductId.setText(list[0]);
+            productStatus2.setText(list[1]);
+            productStatus3.setText(list[2]);
+            productStatus4.setText(list[3]);
+        }
+        else if (length==5) {
+            statusProductId.setText(list[0]);
+            productStatus2.setText(list[1]);
+            productStatus3.setText(list[2]);
+            productStatus4.setText(list[3]);
+            productStatus4.setText(list[4]);
+        }
+        else {
+            statusProductId.setText(list[0]);
+            productStatus2.setText(list[1]);
+            productStatus3.setText(list[2]);
+            productStatus4.setText(list[3]);
+            productStatus4.setText(list[4]);
         }
     }
 
