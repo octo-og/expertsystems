@@ -386,7 +386,6 @@ public class ui extends javax.swing.JFrame {
         jButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                databaseControl.doctorBuy();
                 if((jCheckBox14.isSelected()||jCheckBox15.isSelected())&&(jCheckBox16.isSelected()||jCheckBox17.isSelected())){
                     if(jCheckBox1.isSelected()){
                         responder[0]=1;

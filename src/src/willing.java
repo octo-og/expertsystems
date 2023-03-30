@@ -1,66 +1,66 @@
 public class willing {
     databaseControl databaseControl = new databaseControl();
-    int allWorkers= databaseControl.allWorkers();
+
     int sum=0;
-    public double probabilityOfYesDoctor(){
-         sum = databaseControl.doctorNotBuy()+ databaseControl.doctorBuy();
-        return (double) sum/allWorkers;
+    public double probabilityOfYesDoctor(String productID){
+         sum = databaseControl.doctorNotBuy(productID)+ databaseControl.doctorBuy(productID);
+        return (double) sum/databaseControl.allWorkers(productID);
     }
-    public double probabilityOfYesTeacher(){
-        sum= databaseControl.teacherBuy()+databaseControl.teacherNotBuy();
-        return (double) sum/allWorkers;
+    public double probabilityOfYesTeacher(String productID){
+        sum= databaseControl.teacherBuy(productID)+databaseControl.teacherNotBuy(productID);
+        return (double) sum/databaseControl.allWorkers(productID);
     }
-    public double probabilityOfYesFarmer(){
-         sum = databaseControl.farmerBuy()+ databaseControl.farmerNotBuy();
-        return (double) sum/allWorkers;
+    public double probabilityOfYesFarmer(String productID){
+         sum = databaseControl.farmerBuy(productID)+ databaseControl.farmerNotBuy(productID);
+        return (double) sum/databaseControl.allWorkers(productID);
     }
-    public double probabilityOfYesIndustry(){
-        sum = databaseControl.indurstryBuy()+ databaseControl.indurstryNotBuy();
-        return (double) sum/allWorkers;
+    public double probabilityOfYesIndustry(String productID){
+        sum = databaseControl.indurstryBuy(productID)+ databaseControl.industryNotBuy(productID);
+        return (double)sum/databaseControl.allWorkers(productID);
     }
-    public double probabilityOfYesBusiness(){
-        sum = databaseControl.businessBuy()+ databaseControl.businessNotBuy();
-        return (double) sum/allWorkers;
+    public double probabilityOfYesBusiness(String productID){
+        sum = databaseControl.businessBuy(productID)+ databaseControl.businessNotBuy(productID);
+        return (double) sum/databaseControl.allWorkers(productID);
     }
-    public  double probabilityOfStudent(){
-        sum= databaseControl.studentBuy()+ databaseControl.studentNotBuy();
-        return  (double) sum/ databaseControl.allResponders();
+    public  double probabilityOfStudent(String productID){
+        sum= databaseControl.studentBuy(productID)+ databaseControl.studentNotBuy(productID);
+        return  (double) sum/ databaseControl.allResponders(productID);
     }
-    public double probabilityOfYesBuy(){
-        sum= databaseControl.doctorBuy()+
-                databaseControl.teacherBuy()+
-                databaseControl.farmerBuy()+
-                databaseControl.indurstryBuy()+
-                databaseControl.businessBuy()+
-                databaseControl.studentBuy();
-        return (double) sum/ databaseControl.allResponders();
+    public double probabilityOfYesBuy(String productID){
+        sum= databaseControl.doctorBuy(productID)+
+                databaseControl.teacherBuy(productID)+
+                databaseControl.farmerBuy(productID)+
+                databaseControl.indurstryBuy(productID)+
+                databaseControl.businessBuy(productID)+
+                databaseControl.studentBuy(productID);
+        return (double) sum/ databaseControl.allResponders(productID);
     }
-    public double probabilityOfNoBuy(){
-        sum= databaseControl.doctorNotBuy()+
-                databaseControl.teacherNotBuy()+
-                databaseControl.farmerNotBuy()+
-                databaseControl.indurstryNotBuy()+
-                databaseControl.businessNotBuy()+
-                databaseControl.studentNotBuy();
-        return  (double) sum/ databaseControl.allResponders();
-    }
+/*    public double probabilityOfNoBuy(String productID){
+        sum= databaseControl.doctorNotBuy(productID)+
+                databaseControl.teacherNotBuy(productID)+
+                databaseControl.farmerNotBuy(productID)+
+                databaseControl.industryNotBuy(productID)+
+                databaseControl.businessNotBuy(productID)+
+                databaseControl.studentNotBuy(productID);
+        return  (double) sum/ databaseControl.allResponders(productID);
+    }*/
     //probability of a buy give it's a doctor
-    public  double probabilityOfBuyGivenDoctor(){
-        return (double) ((databaseControl.doctorBuy()/ databaseControl.allYesBuy())*probabilityOfYesBuy())/probabilityOfYesDoctor();
+    public  double probabilityOfBuyGivenDoctor(String productID){
+        return (double) ((databaseControl.doctorBuy(productID)/ databaseControl.allYesBuy(productID))*probabilityOfYesBuy(productID))/probabilityOfYesDoctor(productID);
     }
-    public  double probabilityOfBuyGivenTeacher(){
-        return (double) ((databaseControl.teacherBuy()/ databaseControl.allYesBuy())*probabilityOfYesBuy())/probabilityOfYesTeacher();
+    public  double probabilityOfBuyGivenTeacher(String productID){
+        return (double) ((databaseControl.teacherBuy(productID)/ databaseControl.allYesBuy(productID))*probabilityOfYesBuy(productID))/probabilityOfYesTeacher(productID);
     }
-    public  double probabilityOfBuyGivenFarmer(){
-        return (double) ((databaseControl.farmerBuy()/ databaseControl.allYesBuy())*probabilityOfYesBuy())/probabilityOfYesFarmer();
+    public  double probabilityOfBuyGivenFarmer(String productID){
+        return (double) ((databaseControl.farmerBuy(productID)/ databaseControl.allYesBuy(productID))*probabilityOfYesBuy(productID))/probabilityOfYesFarmer(productID);
     }
-    public  double probabilityOfBuyGivenIndurstry(){
-        return (double) ((databaseControl.indurstryBuy()/ databaseControl.allYesBuy())*probabilityOfYesBuy())/probabilityOfYesIndustry();
+    public  double probabilityOfBuyGivenIndurstry(String productID){
+        return (double) ((databaseControl.indurstryBuy(productID)/ databaseControl.allYesBuy(productID))*probabilityOfYesBuy(productID))/probabilityOfYesIndustry(productID);
     }
-    public  double probabilityOfBuyGivenBusiness(){
-        return (double) ((databaseControl.businessBuy()/ databaseControl.allYesBuy())*probabilityOfYesBuy())/probabilityOfYesBusiness();
+    public  double probabilityOfBuyGivenBusiness(String productID){
+        return (double) ((databaseControl.businessBuy(productID)/ databaseControl.allYesBuy(productID))*probabilityOfYesBuy(productID))/probabilityOfYesBusiness(productID);
     }
-    public  double probabilityOfBuyGivenStudent(){
-        return (double) ((databaseControl.studentBuy()/ databaseControl.allYesBuy())*probabilityOfYesBuy())/probabilityOfStudent();
+    public  double probabilityOfBuyGivenStudent(String productID){
+        return (double) ((databaseControl.studentBuy(productID)/ databaseControl.allYesBuy(productID))*probabilityOfYesBuy(productID))/probabilityOfStudent(productID);
     }
 }
