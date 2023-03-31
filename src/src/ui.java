@@ -231,22 +231,7 @@ public class ui extends javax.swing.JFrame {
                 jLabel34.setVisible(true);
                 jLabel35.setVisible(true);
                 jLabel36.setVisible(true);
-                if(jCheckBox5.isSelected()){
-                    responder[1] =1;
-                }
-                else if(jCheckBox6.isSelected()){
-                    responder[1]=2;
-                }
-                else if(jCheckBox7.isSelected()){
-                    responder[1]=3;
-                }
-                else if(jCheckBox8.isSelected()){
-                    responder[1]=4;
-                }
-                else if(jCheckBox18.isSelected()){
-                    responder[1]=5;
-                }
-
+                responder[1]=workplace(jCheckBox5,jCheckBox6,jCheckBox7,jCheckBox8,jCheckBox18 );
 
 
             }
@@ -274,22 +259,7 @@ public class ui extends javax.swing.JFrame {
                 jCheckBox5.setVisible(true);
                 jCheckBox6.setVisible(true);
                 jCheckBox7.setVisible(true);
-
-                if(jCheckBox5.isSelected()){
-                    responder[3]=1;
-                }
-                else if(jCheckBox6.isSelected()){
-                    responder[3]=2;
-                }
-                else if(jCheckBox7.isSelected()){
-                    responder[3]=3;
-                }
-                else if(jCheckBox8.isSelected()){
-                    responder[3]=4;
-                }
-                else if(jCheckBox18.isSelected()){
-                    responder[3]=5;
-                }
+                responder[3]=levelofstudy(jCheckBox5,jCheckBox6,jCheckBox7,jCheckBox8,jCheckBox18);
 
             }
         });
@@ -316,13 +286,7 @@ public class ui extends javax.swing.JFrame {
                 jLabel34.setVisible(false);
                 jLabel35.setText("Kenya");
                 jLabel36.setText("Other");
-
-                if(jCheckBox8.isSelected()){
-                    responder[4]=1;
-                }
-                else if(jCheckBox18.isSelected()){
-                    responder[4]=0;
-                }
+                responder[4]= currentResidence(jCheckBox8,jCheckBox18);
 
             }
         });
@@ -349,35 +313,10 @@ public class ui extends javax.swing.JFrame {
                 jLabel34.setText("Tweeter");
                 jLabel35.setText("Facebook");
                 jLabel36.setText("TikTok");
-                int[] account=new int[5];
-                if(jCheckBox5.isSelected()){
-                    responder[5]=1;
-                }else {
-                    responder[5]=0;
-                }
-                if(jCheckBox6.isSelected()){
-                    responder[6]=2;
-                }else {
-                    responder[6]=0;
-                }
-                if(jCheckBox7.isSelected()){
-                    account[2]=3;
-                }else {
-                    account[2]=0;
-                }
-                if(jCheckBox8.isSelected()){
-                    account[3]=4;
-                }else {
-                    account[3]=0;
-                }
-                if(jCheckBox18.isSelected()){
-                    account[4]=5;
-                }else {
-                    account[4]=0;
-                }
-                int[] data=socialmedia();
+                int[] data=socialmedia(jCheckBox5,jCheckBox6,jCheckBox7,jCheckBox8,jCheckBox18);
                 for (int i=0;i<data.length;i++){
                     responder[i+5]=data[i];
+                    System.out.println(data[i]);
                 }
 
             }
@@ -499,8 +438,16 @@ public class ui extends javax.swing.JFrame {
                     jLabel14.setText(info[1]);
                     jLabel16.setText(info[2]);
                     jLabel18.setText(info[3]);
-                    responder[12]= Integer.valueOf(info[5]);
                     jLabel20.setText(info[4]);
+                    int id=0;
+                    try {
+                        id = Integer.parseInt(products().get(name));
+                        if(id==Integer.parseInt(products().get(name))){
+                            responder[12]=id;
+                        }
+                    }catch (NumberFormatException sizeException){
+                        JOptionPane.showMessageDialog(jPanel1, "Invalid");
+                    }
 
                 } else if (jCheckBox11.isSelected()) {
                     String name = jLabel27.getText();
@@ -510,7 +457,16 @@ public class ui extends javax.swing.JFrame {
                     jLabel16.setText(info[2]);
                     jLabel18.setText(info[3]);
                     jLabel20.setText(info[4]);
-                    responder[12]= Integer.valueOf(info[5]);
+                    int id=0;
+                    try {
+                        id = Integer.parseInt(products().get(name));
+                        if(id==Integer.parseInt(products().get(name))){
+                            responder[12]=id;
+                        }
+                    }catch (NumberFormatException sizeException){
+                        JOptionPane.showMessageDialog(jPanel1, "Invalid");
+                    }
+
 
                 } else if (jCheckBox12.isSelected()) {
                     String name = jLabel28.getText();
@@ -520,7 +476,16 @@ public class ui extends javax.swing.JFrame {
                     jLabel16.setText(info[2]);
                     jLabel18.setText(info[3]);
                     jLabel20.setText(info[4]);
-                    responder[12]= Integer.valueOf(info[5]);
+                    int id=0;
+                    try {
+                        id = Integer.parseInt(products().get(name));
+                        if(id==Integer.parseInt(products().get(name))){
+                            responder[12]=id;
+                        }
+                    }catch (NumberFormatException sizeException){
+                        JOptionPane.showMessageDialog(jPanel1, "Invalid");
+                    }
+
 
                 }else if(jCheckBox13.isSelected()){
                     String name = jLabel29.getText();
@@ -530,7 +495,16 @@ public class ui extends javax.swing.JFrame {
                     jLabel16.setText(info[2]);
                     jLabel18.setText(info[3]);
                     jLabel20.setText(info[4]);
-                    responder[12]= Integer.valueOf(info[5]);
+                    int id=0;
+                    try {
+                        id = Integer.parseInt(products().get(name));
+                        if(id==Integer.parseInt(products().get(name))){
+                            responder[12]=id;
+                        }
+                    }catch (NumberFormatException sizeException){
+                        JOptionPane.showMessageDialog(jPanel1, "Invalid");
+                    }
+
 
                 }
             }
@@ -1069,8 +1043,8 @@ public class ui extends javax.swing.JFrame {
         return  product;
     }
     Integer[] responder= new Integer[13];
-    public int workplace(int workplace ){
-
+    public int workplace(JCheckBox jCheckBox5,JCheckBox jCheckBox6,JCheckBox jCheckBox7,JCheckBox jCheckBox8,JCheckBox jCheckBox18 ){
+            int workplace=0;
         if(jCheckBox5.isSelected()){
             workplace=1;
         }
@@ -1088,7 +1062,7 @@ public class ui extends javax.swing.JFrame {
         }
         return workplace;
     }
-    public int levelofstudy(){
+    public int levelofstudy(JCheckBox jCheckBox5,JCheckBox jCheckBox6,JCheckBox jCheckBox7,JCheckBox jCheckBox8,JCheckBox jCheckBox18){
         int levelofstudy = 0;
         if(jCheckBox5.isSelected()){
             levelofstudy=1;
@@ -1107,36 +1081,26 @@ public class ui extends javax.swing.JFrame {
         }
         return levelofstudy;
     }
-    public int[] socialmedia(){
+    public int[] socialmedia(JCheckBox jCheckBox5,JCheckBox jCheckBox6,JCheckBox jCheckBox7,JCheckBox jCheckBox8,JCheckBox jCheckBox18){
         int[] account=new int[5];
         if(jCheckBox5.isSelected()){
             account[0]=1;
-        }else {
-         //   account[0]=0;
         }
         if(jCheckBox6.isSelected()){
             account[1]=2;
-        }else {
-           // account[1]=0;
         }
          if(jCheckBox7.isSelected()){
             account[2]=3;
-        }else {
-             //account[2]=0;
-         }
+        }
         if(jCheckBox8.isSelected()){
             account[3]=4;
-        }else {
-           // account[3]=0;
         }
          if(jCheckBox18.isSelected()){
             account[4]=5;
-        }else {
-            // account[4]=0;
-         }
+        }
         return account;
     }
-    public int currentResidence(){
+    public int currentResidence(JCheckBox jCheckBox8,JCheckBox jCheckBox18){
         int residence = 0;
          if(jCheckBox8.isSelected()){
             residence=1;
