@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static sun.swing.MenuItemLayoutHelper.max;
+
 /**
  *
  * @author richy
@@ -314,12 +316,12 @@ public class product extends javax.swing.JFrame {
                         if(databaseControl.productInsert(name,newSize,newWeight,newPrice,color)){
                             JOptionPane.showMessageDialog(jPanel2,"Data added");
                             displayproducts();
-
                         }
                         else {
                             JOptionPane.showMessageDialog(jPanel2,"Error Occurred");
                         }
                     }
+
                 }
             }
         });
@@ -1086,6 +1088,176 @@ public class product extends javax.swing.JFrame {
                 else {
                 }
 
+            }
+        });
+        jButton11.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buyers buyers = new buyers();
+
+                if(jCheckBox12.isSelected()){
+                    String productId=productId1.getText();
+                  int tweeter=  databaseControl.countTweeter(productId);
+                  int facebook=  databaseControl.countfacebook(productId);
+                  int instagram=  databaseControl.countInstagram(productId);
+                  int whatsapp=  databaseControl.countWhatsap(productId);
+                  int tiktok=  databaseControl.countTiktok(productId);
+//                  int mode =max(tiktok,facebook,instagram,whatsapp,tweeter);
+                  double teachers = buyers.probabilityOfTeacherBuying(productId);
+                  double docotors = buyers.probabilityOfDoctorBuying(productId);
+                  double business = buyers.probabilityOfBusinessBuying(productId);
+                  double industry = buyers.probabilityOfIndustryBuying(productId);
+                  double farmers =buyers.probabilityOfFarmerBuying(productId);
+
+                  jTextArea1.setText("This is the breakdown of response in percentage probability \n" +
+                          "of your assessed product\n" +
+                          "Teachers: "+teachers+"%.\n" +
+                          "Doctors: "+docotors+"%\n" +
+                          "Farmers: "+farmers+"%\n" +
+                          "Busness People: "+business+"%\n" +
+                          "Industry People: "+industry+"%"
+                  );
+                }
+                else if(jCheckBox13.isSelected()){
+                    String productId=productId2.getText();
+                    double teachers = buyers.probabilityOfTeacherBuying(productId);
+                    double docotors = buyers.probabilityOfDoctorBuying(productId);
+                    double business = buyers.probabilityOfBusinessBuying(productId);
+                    double industry = buyers.probabilityOfIndustryBuying(productId);
+                    double farmers =buyers.probabilityOfFarmerBuying(productId);
+                    jTextArea1.setText("This is the breakdown of response in percentage probability \n" +
+                            "of your assessed product\n" +
+                            "Teachers: "+teachers+"%.\n" +
+                            "Doctors: "+docotors+"%\n" +
+                            "Farmers: "+farmers+"%\n" +
+                            "Busness People: "+business+"%\n" +
+                            "Industry People: "+industry+"%"
+                    );
+
+                }
+                else if(jCheckBox14.isSelected()){
+                    String productId=prductId3.getText();
+                    double teachers = buyers.probabilityOfTeacherBuying(productId);
+                    double docotors = buyers.probabilityOfDoctorBuying(productId);
+                    double business = buyers.probabilityOfBusinessBuying(productId);
+                    double industry = buyers.probabilityOfIndustryBuying(productId);
+                    double farmers =buyers.probabilityOfFarmerBuying(productId);
+                    jTextArea1.setText("This is the breakdown of response in percentage probability \n" +
+                            "of your assessed product\n" +
+                            "Teachers: "+teachers+"%.\n" +
+                            "Doctors: "+docotors+"%\n" +
+                            "Farmers: "+farmers+"%\n" +
+                            "Busness People: "+business+"%\n" +
+                            "Industry People: "+industry+"%"
+                    );
+                }
+                else if(jCheckBox15.isSelected()){
+                    String productId=productId4.getText();
+                    double teachers = buyers.probabilityOfTeacherBuying(productId);
+                    double docotors = buyers.probabilityOfDoctorBuying(productId);
+                    double business = buyers.probabilityOfBusinessBuying(productId);
+                    double industry = buyers.probabilityOfIndustryBuying(productId);
+                    double farmers =buyers.probabilityOfFarmerBuying(productId);
+                    jTextArea1.setText("This is the breakdown of response in percentage probability \n" +
+                            "of your assessed product\n" +
+                            "Teachers: "+teachers+"%.\n" +
+                            "Doctors: "+docotors+"%\n" +
+                            "Farmers: "+farmers+"%\n" +
+                            "Busness People: "+business+"%\n" +
+                            "Industry People: "+industry+"%"
+                    );
+                }
+                else if(jCheckBox16.isSelected()){
+                    String productId=productId5.getText();
+                    double teachers = buyers.probabilityOfTeacherBuying(productId);
+                    double docotors = buyers.probabilityOfDoctorBuying(productId);
+                    double business = buyers.probabilityOfBusinessBuying(productId);
+                    double industry = buyers.probabilityOfIndustryBuying(productId);
+                    double farmers =buyers.probabilityOfFarmerBuying(productId);
+                    jTextArea1.setText("This is the breakdown of response in percentage probability \n" +
+                            "of your assessed product\n" +
+                            "Teachers: "+teachers+"%.\n" +
+                            "Doctors: "+docotors+"%\n" +
+                            "Farmers: "+farmers+"%\n" +
+                            "Busness People: "+business+"%\n" +
+                            "Industry People: "+industry+"%"
+                    );
+
+                }
+                else {
+
+                    JOptionPane.showMessageDialog(jPanel4,"No Items Selected");
+
+                }
+            }
+        });
+        jButton12.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(jCheckBox12.isSelected()){
+                    String productId=productId1.getText();
+                    if(databaseControl.deleteproductInAssessment(productId)){
+                        displayProductsInAssessment();
+                        JOptionPane.showMessageDialog(jPanel5,"Deleted");
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel5,"Error Occurred try again later");
+
+                    }
+                }
+                else if(jCheckBox13.isSelected()){
+                    String productId=productId2.getText();
+                    if(databaseControl.deleteproductInAssessment(productId)){
+                        displayProductsInAssessment();
+                        JOptionPane.showMessageDialog(jPanel5,"Deleted");
+
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel5,"Error Occurred try again later");
+
+                    }
+                }
+                else if(jCheckBox14.isSelected()){
+                    String productId=prductId3.getText();
+                    if(databaseControl.deleteproductInAssessment(productId)){
+                        displayProductsInAssessment();
+                        JOptionPane.showMessageDialog(jPanel5,"Deleted");
+
+
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel5,"Error Occurred try again later");
+
+                    }
+
+                }
+                else if(jCheckBox15.isSelected()){
+                    String productId=productId4.getText();
+                    if(databaseControl.deleteproductInAssessment(productId)){
+                        displayProductsInAssessment();
+                        JOptionPane.showMessageDialog(jPanel5,"Deleted");
+
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel5,"Error Occurred try again later");
+
+                    }
+
+                }
+                else if(jCheckBox16.isSelected()){
+                    String productId=productId5.getText();
+                    if(databaseControl.deleteproductInAssessment(productId)){
+                        displayProductsInAssessment();
+                        JOptionPane.showMessageDialog(jPanel5,"Deleted");
+
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel5,"Error Occurred try again later");
+
+                    }
+
+
+                }
+                else {
+
+                    JOptionPane.showMessageDialog(jPanel4,"No Items Selected");
+
+                }
             }
         });
         //Activating Action checkBoxes

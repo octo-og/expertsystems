@@ -172,26 +172,43 @@ public class ui extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                    int result= JOptionPane.showConfirmDialog(jPanel2,"Confirm to Edit");
-                    switch (result){
-                        case JOptionPane.YES_OPTION :
-                            jPanel2.setVisible(false);
-                            //code
 
-                            break;
-                        case JOptionPane.NO_OPTION:
-                            //code
-                            jPanel2.setVisible(false);
-                            break;
-                        case JOptionPane.CANCEL_OPTION:
-                            jPanel2.setVisible(false);
-                            //code
-                            break;
-                        case JOptionPane.CLOSED_OPTION:
-                            jPanel2.setVisible(false);
-                            //code
-                            break;
+                jCheckBox6.setSelected(false);
+                jCheckBox7.setSelected(false);
+                jCheckBox8.setSelected(false);
+                jCheckBox18.setSelected(false);
+                if(jCheckBox5.isSelected()){
+                    jCheckBox5.setSelected(false);
+                }
+                if(jCheckBox6.isSelected()){
+                    jCheckBox6.setSelected(false);
+                }
+                if(jCheckBox7.isSelected()){
+                    jCheckBox7.setSelected(false);
+                }
+                if(jCheckBox5 .isSelected()){
+                    jCheckBox5.setSelected(false);
+                }
+
+                jPanel2.setVisible(false);
+/*                    int result= JOptionPane.showConfirmDialog(jPanel2,"Confirm to Edit");
+                switch (result) {
+                    case JOptionPane.YES_OPTION -> {
+
+
                     }
+                    //code
+
+                    case JOptionPane.NO_OPTION ->
+                        //code
+                            jPanel2.setVisible(false);
+                    case JOptionPane.CANCEL_OPTION -> jPanel2.setVisible(false);
+
+                    //code
+                    case JOptionPane.CLOSED_OPTION -> jPanel2.setVisible(false);
+
+                    //code
+                }*/
                 }
 
         });
@@ -392,6 +409,11 @@ public class ui extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(jPanel1,"Answer Qn 8");
                     }else {
                         check=true;
+                    }
+                    if(jCheckBox9.isSelected()||jCheckBox10.isSelected()||jCheckBox11.isSelected()||jCheckBox12.isSelected()||jCheckBox13.isSelected()){
+                        check=true;
+                    }else {
+                        JOptionPane.showMessageDialog(jPanel3,"Please asses at least one product");
                     }
                     if(check){
                         if (databaseControl.responder(responder[0],responder[1],responder[2],responder[3],responder[4],responder[5],responder[6],responder[7],responder[8],responder[9],responder[10],responder[11],responder[12])){

@@ -2,7 +2,7 @@ public class buyers {
     willing willing= new willing();
     able able = new able();
     public double probabilityOfDoctorBuying(String productID){
-        return (double) willing.probabilityOfBuyGivenDoctor(productID)* able.probabilityOfAbleBuyGivenDoctor(productID)*100;
+        return  willing.probabilityOfBuyGivenDoctor(productID)* able.probabilityOfAbleBuyGivenDoctor(productID)*100;
     }
     public double probabilityOfTeacherBuying(String productID){
         return (double) willing.probabilityOfBuyGivenTeacher(productID)* able.probabilityOfAbleBuyGivenTeacher(productID)*100;

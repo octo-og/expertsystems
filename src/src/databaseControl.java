@@ -2,6 +2,12 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class databaseControl {
+public static void main(String args[]){
+    databaseControl databaseControl = new databaseControl();
+    for(int i =0;i<54;i++){
+        databaseControl.responder(1,5,0,3,1,0,0,0,0,1,1,1,15);
+    }
+}
     public boolean productInsert(String name, float size, float weight, float price, String color)
     {
         boolean resultSet = false;
@@ -441,7 +447,7 @@ public class databaseControl {
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -463,7 +469,7 @@ public class databaseControl {
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -485,7 +491,7 @@ public class databaseControl {
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -507,7 +513,7 @@ public class databaseControl {
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -529,7 +535,7 @@ public class databaseControl {
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -551,7 +557,7 @@ public class databaseControl {
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -573,7 +579,7 @@ public int teacherNotBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -595,7 +601,7 @@ public int teacherNotAbleBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -617,7 +623,7 @@ public int farmerBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -639,7 +645,7 @@ public int farmerBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -662,7 +668,7 @@ public int farmerNotBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -684,7 +690,7 @@ public int farmerNotBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -706,7 +712,7 @@ public int indurstryBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -728,7 +734,7 @@ public int industryAbleBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -750,7 +756,7 @@ public int industryAbleBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -772,7 +778,7 @@ public int industryAbleBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -794,7 +800,7 @@ public int industryAbleBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -816,7 +822,7 @@ public int industryAbleBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -838,7 +844,7 @@ public int businessNotBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -860,7 +866,7 @@ public int businessNotAbleBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -882,7 +888,7 @@ public int studentBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -904,7 +910,7 @@ public int studentAbleBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -926,7 +932,7 @@ public int studentNotBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -948,7 +954,7 @@ public int studentNotAbleBuy(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -970,7 +976,7 @@ public int allWorkers(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -987,12 +993,12 @@ public int allWorkers(String productID)
             Connection con=DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/expert","root","");
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery("select count(\"working\") from responder and productID='"+productID+"';");
+            ResultSet rs=stmt.executeQuery("select count(working) from responder where productID = '"+productID+"';");
             while(rs.next())
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -1015,7 +1021,6 @@ public int allWorkers(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -1037,11 +1042,141 @@ public int allWorkers(String productID)
                 result =rs.getInt(1);
             // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
-            System.out.println(result);
+
         }
         catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
         return result;
+    }
+    public int countWhatsap(String productID)
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"whatsapp\") from responder where productID='"+productID+"';");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+    public int countfacebook(String productID)
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"facebook\") from responder where productID='"+productID+"';;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+    public int countInstagram(String productID)
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"instagram\") from responder where productID='"+productID+"';;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+    public int countTweeter(String productID)
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"tweeter\") from responder where productID='"+productID+"';;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+    public int countTiktok(String productID)
+    {
+
+        int result =0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select count(\"tiktok\") from responder where productID='"+productID+"';;");
+            while(rs.next())
+                result =rs.getInt(1);
+            // System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+
+        }
+        catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+    public boolean deleteproductInAssessment(String productID)
+    {
+        boolean done;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/expert","root","");
+            Statement stmt=con.createStatement();
+            stmt.execute("delete from product_to_assess where productID='"+productID+"';");
+            con.close();
+            done=true;
+        }
+        catch (SQLException | ClassNotFoundException throwable) {
+            throwable.printStackTrace();
+            done=false;
+        }
+
+        return done;
     }
 }
